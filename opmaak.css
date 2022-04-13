@@ -17,6 +17,11 @@ body {
   margin: 0px;
 }
 
+.begrip {
+  font-weight: bold;
+  color: rgb(220, 34, 132);
+}
+
 .skill {
   border-style: solid;
   border-width: 3px;

@@ -1,0 +1,38 @@
+
+Idea:
+
+basis html
+ -- tag
+   -- block vs inline
+   -- classes
+   -- ID
+ -- indentatie
+ -- layout
+ -- body
+   -- headers
+   -- tekst
+   -- fotos
+   -- links
+        -- menu balk
+   -- tabel
+   -- list
+      -- ordered
+      -- unordered
+ -- head
+    -- title
+    -- charsets
+    -- favicon
+ -- style guide
+   -V- naamgeving
+   -- standaarden
+ -- comments
+ -- verwijzen
+
+basis CSS
+  -- verschillende manieren van verbinden
+  -- opzet
+  -- indentatie
+  -- kleuren
+     https://htmlcolorcodes.com/color-picker/
+  -- ruimte toevoegen: padding en margin
+  -- centreren

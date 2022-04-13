@@ -30,6 +30,8 @@ body {
   padding-bottom: 19px;
   width: 20%;
   text-align: center;
+  float: left;
+  margin-right: 20px;
 }
 
 .skilltable {
@@ -57,11 +59,23 @@ body {
 }
 
 .basis {
-  background-color: rgba(34, 132, 220, 0.4);
+  background-color: rgba(30, 116, 193, 0.4);
+}
+
+.html {
+  background-color: rgba(30, 116, 193, 0.2);
 }
 
 .right {
   float:right;
+}
+
+.left {
+  float:left;
+}
+
+img {
+  margin-left: 15px;
 }
 
 h1 {
@@ -123,4 +137,31 @@ nav li a:hover.active {
   margin-left:5%;
   margin-right: 5%;
   padding:1px 16px;
+}
+
+.explain {
+  margin-left: 10px;
+  margin-right: 20px;
+  width: 68%;
+}
+
+.uitleg {
+  width: 85%;
+}
+
+.button a:link,.button a:visited {
+  background-color: rgba(220, 34, 132, 0.4);
+  color: black;
+  border: 2px solid rgb(220, 34, 132);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.button a:hover,.button a:active {
+  background-color: rgb(220, 34, 132);
+  color: white;
+  border-radius: 10px;
 }

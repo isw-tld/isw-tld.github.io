@@ -165,3 +165,8 @@ nav li a:hover.active {
   color: white;
   border-radius: 10px;
 }
+
+.center {
+  margin:auto;
+  text-align: center;
+}

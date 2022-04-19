@@ -10,6 +10,15 @@ rgb(34, 132, 220) - Blauw
     rgb(13, 50, 82)
     rgb(9, 33, 55)
     rgb(4, 17, 27)
+    tinten
+    rgb(34, 132, 220)
+    rgb(62, 147, 224)
+    rgb(89, 163, 229)
+    rgb(117, 178, 233)
+    rgb(145, 194, 237)
+    rgb(172, 209, 242)
+    rgb(200, 224, 246)
+    rgb(227, 240, 251)
 rgb(220, 34, 132) - Roze
 rgb(132, 220, 34) - Groen
 */
@@ -60,11 +69,15 @@ body {
 }
 
 .basis {
-  background-color: rgba(30, 116, 193, 0.4);
+  background-color: rgb(227, 240, 251);
 }
 
 .html {
-  background-color: rgba(30, 116, 193, 0.2);
+  background-color: rgb(200, 224, 246);
+}
+
+.stijl {
+  background-color: rgb(172, 209, 242);
 }
 
 .right {
@@ -179,4 +192,8 @@ h4 {
 
 ol, ul {
   margin-top: 0px;
+}
+
+tr a {
+  color: black;
 }

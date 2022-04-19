@@ -9,8 +9,8 @@ basis html
  -- indentatie
  -v layout
  -- body
-   -- headers
-   -- tekst
+   -v headings
+   -v tekst
    -v fotos
    -v links
         -- menu balk
@@ -23,10 +23,9 @@ basis html
     -- charsets
     -- favicon
  -- style guide
-   -V- naamgeving
+   -V naamgeving
    -- standaarden
  -- comments
- -- verwijzen
 
 basis CSS
   -- verschillende manieren van verbinden

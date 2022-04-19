@@ -2,17 +2,17 @@
 Idea:
 
 basis html
- -- tag
+ -v tag
    -- block vs inline
    -- classes
    -- ID
  -- indentatie
- -- layout
+ -v layout
  -- body
    -- headers
    -- tekst
-   -- fotos
-   -- links
+   -v fotos
+   -v links
         -- menu balk
    -- tabel
    -- list

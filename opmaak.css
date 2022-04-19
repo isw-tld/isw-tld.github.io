@@ -171,3 +171,12 @@ nav li a:hover.active {
   margin:auto;
   text-align: center;
 }
+
+h4 {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+ol, ul {
+  margin-top: 0px;
+}

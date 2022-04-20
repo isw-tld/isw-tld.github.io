@@ -8,7 +8,7 @@ basis html
    -- ID
  -- indentatie
  -v layout
- -- body
+ -v body
    -v headings
    -v tekst
    -v fotos

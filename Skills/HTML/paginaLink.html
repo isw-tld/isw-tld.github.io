@@ -2,27 +2,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>HTML Linken</title>
+    <title>HTML Navigeren</title>
     <link rel="stylesheet" href="../../opmaak.css">
 
   </head>
   <body>
     <div class="content html">
-      <h2> Pagina's linken </h2>
+      <h2> Navigeren </h2>
       <p>
-        Nu je bedacht hebt hoe jouw website eruit ziet, is het tijd voor het laatste stukje HTML.
-        We gaan voor dit onderdeel nog een paar tags bespreken die handig kunnen zijn. <br>
-        Maak een nieuwe HTML pagina aan, kijk eventueel nog even terug naar <a href="../basis/basis.html"> het maken van een bestand</a>.
-        Vergeet ook niet om je aan de <a href="../basis/naamgeving.html"> naamgevings regels</a> te houden.
+        We gaan voor dit onderdeel nog een paar tags bespreken die handig kunnen zijn voor het maken van jouw website. Eerst kijken we hoe we naar andere pagina's kunnen navigeren.
       </p>
+      <h4> Opdracht 1</h4>
+      <p>
+        Maak een nieuwe HTML pagina aan, kijk eventueel nog even terug naar <a href="../basis/basis.html"> het maken van een bestand</a>.
+        Vergeet ook niet om je aan de <a href="../basis/naamgeving.html"> naamgevings regels</a> te houden en als laatst natuurlijk <a href="../basis/naamgeving.html">de basis structuur te gebruiken</a> voor jouw website. 
+      </p>
+      <h3> Linken </h3>
       <p>
         Hierboven zie je in het roze een link die je leidt naar de eerste theorie die we behandeld hadden voor het maken van de website.
         Terug linken naar een pagina is een manier om mensen tussen verschillende pagina's te laten navigeren, en wordt daarom ook als basis gebruikt voor de menu balken van websites.
         <br>
-        De link maken we met behulp van de <code> &#60;a></code> tag. Deze tag bestaat uit drie onderdelen die we gaan bekijken aan de hand van het volgende volgorde:
+        De link maken we met behulp van de <code> &#60;a></code> tag. Deze tag bestaat uit drie onderdelen die we gaan bekijken aan de hand van het volgorde:
       </p>
       <pre><code>
-        &#60;a href="https://www.google.com/"> dit is een link </a>
+        &#60;a href="https://www.google.com/"> dit is een link &#60;/a>
       </code></pre>
       <p>
         Als je goed kijkt zie je dat de link een beetje lijkt op wat we hebben gedaan bij de foto.
@@ -35,11 +38,43 @@
         met de juiste uitgang toe te voegen. Hier zie je een voorbeeld voor hoe je dat zou kunnen doen.
       </p>
       <pre><code>
-        &#60;a href="tweedePagina.html"> dit is een link </a>
+        &#60;a href="tweedePagina.html"> dit is een link &#60;/a>
       </code></pre>
 
-        <h4> Opdracht </h4>
-      <p> Maak een link tussen jouw index pagina en de nieuwe pagina die je net hebt gemaakt. <br> <br> </p>
+      <h3> Lijstjes maken </h3>
+      <p>
+        Bij het maken van navigaties wordt er meestal gebruik gemaakt van een lijst. HTML heeft twee type lijsten die gebruikt kunnen worden.
+      </p>
+        <ol>
+          <li> Een gesorteerde lijst</li>
+          <li> Een niet gesorteerde lijst</li>
+        </ol>
+      <p>
+        Deze lijsten werken praktisch het zelfde, het enige wat je veranderd is de tag die je gebruikt voor het maken van de lijst.
+        Eerst kijken we naar een voorbeeld van een gesorteerde lijst zoals je hierboven ziet. De tag die hiervoor gebruikt wordt is
+        <code>&#60;ol></code> dit staat voor <i>ordered list</i>. Hierbij worden nummers gebruikt om de volgorde aan te geven.
+      </p>
+      <pre><code>
+        &#60;ol>
+          &#60;li> dit is het eerste element &#60;/li>
+          &#60;li> dit is het tweede element &#60;/li>
+        &#60;/ol>
+      </code></pre>
+      <p>
+        Je ziet in het voorbeeld dat er gebruik wordt gemaakt van de <code>&#60;li></code> tag om de elementen in te voegen.
+        Hierdoor weet HTML welk nummer er toegevoegd moet worden.
+        <br>
+        De niet gesorteerde lijst gebruikt van de tag <code>&#60;ul></code> dit staat voor <i>unordered list</i>.
+        Verder werkt hij echt precies het zelfde, kijk maar naar het tweede voorbeeld.
+      </p>
+      <pre><code>
+        &#60;ul>
+          &#60;li> dit is het eerste element &#60;/li>
+          &#60;li> dit is het tweede element &#60;/li>
+        &#60;/ul>
+      </code></pre>
+      <h4> Opdracht 2</h4>
+      <p> Maak een niet gesorteerde lijst met daarin een link naar de andere pagina die je hebt gemaakt <br> <br> </p>
 
       <span class="button"><a href="../../skills.html"> Terug </a></span>
       <span class="right button"><a href="foto.html"> Volgende <a> </span>

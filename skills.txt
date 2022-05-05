@@ -3,7 +3,7 @@ Idea:
 
 basis html
  -v tag
-   -- block vs inline
+   -v block vs inline
    -- classes
    -- ID
  -- indentatie
@@ -13,11 +13,11 @@ basis html
    -v tekst
    -v fotos
    -v links
-        -- menu balk
+        -- menu balks
    -- tabel
-   -- list
-      -- ordered
-      -- unordered
+   -v list
+      -v ordered
+      -v unordered
  -- head
     -- title
     -- charsets

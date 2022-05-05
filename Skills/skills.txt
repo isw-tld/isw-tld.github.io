@@ -6,7 +6,7 @@ basis html
    -v block vs inline
    -- classes
    -- ID
- -- indentatie
+ -v indentatie
  -v layout
  -v body
    -v headings
@@ -14,7 +14,9 @@ basis html
    -v fotos
    -v links
         -- menu balks
+        -v mappen
    -- tabel
+   -- formulier?
    -v list
       -v ordered
       -v unordered

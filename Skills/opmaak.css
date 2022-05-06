@@ -168,7 +168,7 @@ nav li a.active {
 }
 
 nav li a:hover:not(.active) {
-  background-color: var(--accent2);
+  background-color: var(--main-s2);
   color: black;
 }
 

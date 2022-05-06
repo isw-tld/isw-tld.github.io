@@ -98,6 +98,26 @@ body {
   padding-bottom: 5px;
 }
 
+@media only screen and (max-width: 500px) {
+  .content {
+    margin: auto;
+    width: 90%
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+  }
+
+  .skill {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: inherit;
+    padding-bottom: 5px;
+    float: none;
+  }
+}
+
 .basis {
   background-color: var(--main-t4);
 }

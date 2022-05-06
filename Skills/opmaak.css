@@ -22,25 +22,55 @@ rgb(34, 132, 220) - Blauw
 rgb(220, 34, 132) - Roze
 rgb(132, 220, 34) - Groen
 */
+:root {
+  --main: rgb(34, 132, 220);
+  --main-s2: rgb(26, 99, 165);
+  --main-s4: rgb(17, 66, 110);
+  --main-t2: rgb(89, 163, 229);
+  --main-t4: rgb(145, 194, 237);
+  --main-t6: rgb(200, 224, 246);
+  --main-t8: rgb(227, 240, 251);
+  --accent1: rgb(220, 34, 132);
+  --accent1-s2: rgba(220, 34, 132, 0.8);
+  --accent2: rgb(132, 220, 34);
+  --accent2-s2: rgba(132, 220, 34, 0.8);
+  --accent2-s4: rgba(132, 220, 34, 0.6);
+}
+
 body {
-  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin:0;
 }
 
 .begrip {
   font-weight: bold;
-  color: rgb(220, 34, 132);
+  color: var(--accent1);
 }
 
 .skill {
   border-style: solid;
   border-width: 3px;
-  border-color: rgb(13, 50, 82);
+  border-color: var(--main-s2);
   padding: 4px;
-  padding-bottom: 19px;
-  width: 30%;
+  margin: 5px;
+  width: max(30%, 200px);
+  min-width: 160px;
   text-align: center;
   float: left;
-  margin-left: 10px;
+  min-height: 340px;
+}
+
+@media only screen and (max-width: 1235px) {
+  .skill {
+    width: max(70%, 400px);
+    margin-left: auto;
+    margin-right: auto;
+    min-height: inherit;
+    padding-bottom: 5px;
+    float: none;
+  }
 }
 
 .skilltable {
@@ -61,7 +91,7 @@ body {
 
 .content {
   margin: auto;
-  width: 60%;
+  width: max(60%, 500px);
   text-align: justify;
   padding-left: 10px;
   padding-right: 10px;
@@ -69,15 +99,15 @@ body {
 }
 
 .basis {
-  background-color: rgb(227, 240, 251);
+  background-color: var(--main-t4);
 }
 
 .html {
-  background-color: rgb(200, 224, 246);
+  background-color: var(--main-t6);
 }
 
 .stijl {
-  background-color: rgb(172, 209, 242);
+  background-color: var(--main-t8);
 }
 
 .right {
@@ -105,11 +135,11 @@ pre {
 }
 
 a {
-  color: rgba(220, 34, 132, 0.6);
+  color: var(--accent1);
 }
 
 a:hover {
-  color: rgba(220, 34, 132, 1);
+  color: var(--accent1-s2);
 }
 
 nav ul {
@@ -117,7 +147,7 @@ nav ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: rgb(34, 132, 220);
+  background-color: var(--main);
 }
 
 nav ul li {
@@ -126,31 +156,32 @@ nav ul li {
 
 nav li a {
   display: block;
-  color: #000;
+  color: black;
   padding: 14px 16px;
   text-decoration: none;
   text-align: center;
 }
 
 nav li a.active {
-  background-color: rgba(132, 220, 34, 0.8);
-  color: #000;
+  background-color: var(--accent2-s2);
+  color: black;
 }
 
 nav li a:hover:not(.active) {
-  background-color: rgba(132, 220, 34, 0.4);
-  color: #000;
+  background-color: var(--accent2);
+  color: black;
 }
 
 nav li a:hover.active {
-  background-color: rgba(132, 220, 34, 1);
-  color: #000;
+  background-color: var(--accent2);
+  color: black;
 }
 
 .inhoud {
-  margin-left:5%;
-  margin-right: 5%;
+  margin-left: auto;
+  margin-right: auto;
   padding:1px 16px;
+
 }
 
 .explain {
@@ -164,9 +195,9 @@ nav li a:hover.active {
 }
 
 .button a:link,.button a:visited {
-  background-color: rgba(220, 34, 132, 0.4);
+  background-color: var(--accent1-s4);
   color: black;
-  border: 2px solid rgb(220, 34, 132);
+  border: 2px solid var(--accent1);
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -175,7 +206,7 @@ nav li a:hover.active {
 }
 
 .button a:hover,.button a:active {
-  background-color: rgb(220, 34, 132);
+  background-color: var(--accent1);
   color: white;
   border-radius: 10px;
 }
@@ -216,8 +247,8 @@ th.mid {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
+  margin-top:auto;
   width: 100%;
-  background-color: rgba(34, 132, 220, 0.1);
+  background-color: var(--main-s4);
+  color: white;
 }

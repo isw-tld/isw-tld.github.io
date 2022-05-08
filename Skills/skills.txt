@@ -15,8 +15,8 @@ basis html
    -v links
         -v menu balks
         -v mappen
-   -- tabel
-   -- formulier?
+   -v tabel
+   -x formulier?
    -v list
       -v ordered
       -v unordered
@@ -35,6 +35,6 @@ basis CSS
   -- indentatie
   -- kleuren
      https://htmlcolorcodes.com/color-picker/
-     https://www.w3schools.com/cssref/css_colors.asp 
+     https://www.w3schools.com/cssref/css_colors.asp
   -- ruimte toevoegen: padding en margin
   -- centreren

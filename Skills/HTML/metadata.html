@@ -4,47 +4,39 @@
     <meta charset="utf-8">
     <title>Metadata</title>
     <link rel="stylesheet" href="../opmaak.css">
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="https://andrewlock.net/content/images/2016/10/icon.png"/>
 
   </head>
   <body>
     <div class="content html">
-      <h2> Indentatie </h2>
+      <h2> Metadata </h2>
       <p>
-        We kennen nu echt al een heleboel tags die je kunt gebruiken om jouw website te vullen.
-        Nu wordt het tijd om te leren hoe je de tags correct neerzet zodat het beter te lezen is.
-        Dit doen we door middel van <span class="begrip">indentatie</span>. De indentatie is hoeveel
-        ruimte er zit voordat er tekst komt vanaf de linker kantlijn. Deze ruimte vullen we door middel
-        van de tab knop links op het toetsenbord. <br>
-        Elk voorbeeld die je tot nu toe gezien hebt maakt gebruik van indentatie. Je zult daarom waarschijnlijk
-        in jouw bestanden al redelijk wat lege ruimte aan de linkerkant tegen komen. <br>
-        De algeme regel is als volg: Na het openen van een tag voeg je een tabje meer toe tot je hem weer sluit.<br>
-        Maar de regel zou geen regel zijn als we er geen uitzonderingen op zouden hebben. De uitzondering is
-        gelukkig niet willekeurig, maar vraagt wel om weer een beetje theorie.
+        In de standaard HTML die we als eerst hebben geleerd, zat al een basis voor de head.
+        We hebben geleerd dat dit alle informatie is die de browser nodig heeft om de website goed te laten zien.
+        In de basis zit de <span class="begrip">charset</span> wat vertelt welke tekens we allemaal begruiken.
+        Daarnaast hebben we ook de <code>title</code> die gebruikt wordt om de naam van het <span class="begrip">tabblad</span> te veranderen.
+        Naast de titel van het tabblad zie je ook een klein logo. Dit kleine logo naast de naam van het tabblad heet een <span class="begrip">favicon</span>.
+        Deze wordt geladen met een <code>link</code> in de head.
+        Op deze website zie je verder ook nog een stijling. Er zijn kleuren, de uitleg heeft een randje er om heen, begrippen zijn gekleurd etc.
+        Dit wordt ook gedaan met een <code>link</code> naar de stijl in de head.
+        <br>
+
+        De head voor deze pagina ziet er bijvoorbeeld uit zoals de code hieronder. Je ziet hier dat er gebruik wordt gemaakt van de relatieve links zoals we hebben geleerd bij <a href="mappen.html">mappen</a>.
       </p>
 
       <pre><code>
-        &#60;!DOCTYPE html>
-        &#60;html>
-          &#60;head>
-            &#60;meta charset="utf-8">
-            &#60;title> Website titel &#60;/title>
-          &#60;/head>
-          &#60;body>
-            &#60;h1> h1 is een block tag &#60;/h1>
-            &#60;p>
-              De p is ook een blocktag, maar &#60;b>de b&#60;/b> tag niet.
-              html, head en body dan weer wel, maar img weer niet!
-            &#60;/p>
-          &#60;/body>
-        &#60;/html>
+        &#60;head>
+          &#60;meta charset="utf-8">
+          &#60;title> Metadata &#60;/title>
+          &#60;link rel="stylesheet" href="../opmaak.css">
+          &#60;link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico"/>
+        &#60;/head>
       </code></pre>
       <h4> Opdracht </h4>
-      <ol>
-        <li> Neem onderstaande code over in een nieuw html bestand genaamd indentatie.html. Hierin is de indentatie weg gehaald</li>
-        <li> Voeg alle indentatie weer toe op de juiste plekken door middel van de tab toets.</li>
-        <li> Voeg een link toe naar indentatie.html aan de lijst van <a href="paginaLink.html"> navigeren opdracht 2</a>.</li>
-      </ol>
+      <ul>
+        <li> Voeg een favicon toe aan jouw website. Je kunt zelf een png zoeken, anders kun je ook het favicon van deze website gebruiken: <code>https://raw.githubusercontent.com/isw-tld/isw-tld.github.io/main/favicon.png</code></li>
+        <li> Zorg ervoor dat je jouw website een eigen titel geeft.</li>
+      </ul>
 
 
       <span class="button"><a href="../skills.html"> Terug </a></span>

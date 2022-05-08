@@ -19,6 +19,7 @@ rgb(34, 132, 220) - Blauw
     rgb(172, 209, 242)
     rgb(200, 224, 246)
     rgb(227, 240, 251)
+    rgb(234, 244, 252)
 rgb(220, 34, 132) - Roze
 rgb(132, 220, 34) - Groen
 */
@@ -27,9 +28,10 @@ rgb(132, 220, 34) - Groen
   --main-s2: rgb(26, 99, 165);
   --main-s4: rgb(17, 66, 110);
   --main-t2: rgb(89, 163, 229);
-  --main-t4: rgb(145, 194, 237);
-  --main-t6: rgb(200, 224, 246);
-  --main-t8: rgb(227, 240, 251);
+  --main-t4: rgb(117, 178, 233);
+  --main-t6: rgb(172, 209, 242);
+  --main-t8: rgb(200, 224, 246);
+  --main-t10: rgb(227, 240, 251);
   --accent1: rgb(220, 34, 132);
   --accent1-s2: rgba(220, 34, 132, 0.8);
   --accent2: rgb(132, 220, 34);
@@ -49,6 +51,18 @@ body {
   color: var(--accent1);
 }
 
+.basis {
+  background-color: var(--main-t4);
+}
+
+.html {
+  background-color: var(--main-t6);
+}
+
+.stijl {
+  background-color: var(--main-t8);
+}
+
 .skill {
   border-style: solid;
   border-width: 3px;
@@ -62,6 +76,39 @@ body {
   min-height: 340px;
 }
 
+.opdracht {
+  background-color: var(--main-t10);
+  width: max(96%, 400px);
+  min-height: inherit;
+}
+
+.opdracht p, .opdracht li{
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: justify;
+}
+
+/* work in progress mobile view*/
+@media only screen and (max-width: 500px) {
+  .content {
+    margin: auto;
+    width: 90%!important;
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+  }
+
+  .skill {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: inherit;
+    padding-bottom: 5px;
+    float: none;
+  }
+}
+
 @media only screen and (max-width: 1235px) {
   .skill {
     width: max(70%, 400px);
@@ -70,6 +117,11 @@ body {
     min-height: inherit;
     padding-bottom: 5px;
     float: none;
+  }
+
+  .opdracht {
+    background-color: var(--main);
+    width: max(70%, 400px);
   }
 }
 
@@ -96,38 +148,6 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 5px;
-}
-
-@media only screen and (max-width: 500px) {
-  .content {
-    margin: auto;
-    width: 90%
-    text-align: justify;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 5px;
-  }
-
-  .skill {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    min-height: inherit;
-    padding-bottom: 5px;
-    float: none;
-  }
-}
-
-.basis {
-  background-color: var(--main-t4);
-}
-
-.html {
-  background-color: var(--main-t6);
-}
-
-.stijl {
-  background-color: var(--main-t8);
 }
 
 .right {
@@ -201,7 +221,7 @@ nav li a:hover.active {
   margin-left: auto;
   margin-right: auto;
   padding:1px 16px;
-
+  margin-bottom: 40px;
 }
 
 .explain {
@@ -271,4 +291,9 @@ footer {
   width: 100%;
   background-color: var(--main-s4);
   color: white;
+}
+
+#code {
+  margin: 10px;
+  margin-top: -15px;
 }

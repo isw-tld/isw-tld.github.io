@@ -9,42 +9,53 @@
   </head>
   <body>
     <div class="content html">
-      <h2> Indentatie </h2>
+      <h2> Tabellen </h2>
+      <div class="right" id="code">
+        <pre><code>
+&#60;table>
+  &#60;tr>
+    &#60;td>&#60;/td>
+    &#60;td>&#60;/td>
+  &#60;/tr>
+  &#60;tr>
+    &#60;td>&#60;/td>
+    &#60;td>&#60;/td>
+  &#60;/tr>
+  &#60;tr>
+    &#60;td>&#60;/td>
+    &#60;td>&#60;/td>
+  &#60;/tr>
+&#60;/table>
+        </code></pre>
+      </div>
+      <img class="right" src="../fotos/tabel.png" alt="Voorbeeld van een tabel van drie rijen en twee kolommen" width="25%">
+
       <p>
-        We kennen nu echt al een heleboel tags die je kunt gebruiken om jouw website te vullen.
-        Nu wordt het tijd om te leren hoe je de tags correct neerzet zodat het beter te lezen is.
-        Dit doen we door middel van <span class="begrip">indentatie</span>. De indentatie is hoeveel
-        ruimte er zit voordat er tekst komt vanaf de linker kantlijn. Deze ruimte vullen we door middel
-        van de tab knop links op het toetsenbord. <br>
-        Elk voorbeeld die je tot nu toe gezien hebt maakt gebruik van indentatie. Je zult daarom waarschijnlijk
-        in jouw bestanden al redelijk wat lege ruimte aan de linkerkant tegen komen. <br>
-        De algeme regel is als volg: Na het openen van een tag voeg je een tabje meer toe tot je hem weer sluit.<br>
-        Maar de regel zou geen regel zijn als we er geen uitzonderingen op zouden hebben. De uitzondering is
-        gelukkig niet willekeurig, maar vraagt wel om weer een beetje theorie.
+        Soms is het handig om een tabel te maken. Deze tabellen kun je gebruiken
+        voor bijvoorbeeld een sportclub zou je bijvoorbeeld kunnen denken aan roosters of wedstreid uitslagen.
+        Of misschien denk je eerder aan een webwinkel waar je het overzicht van jouw bestelling kan zien.
+        Veel dingen waar je wilt dat de inhoud goed uitgelijnd is wordt gemaakt in een tabel.
+
+        <br>
+        Een tabel in HTML bestaat uit minstens 3 tags, maar dit kunnen er meer worden.
+        Eerst heb je de <code>table</code> tag, hiermee vertel je dat je een tabel gaat maken.
+        Dan maak je rijen voor jouw tabel, deze worden gemaakt uit <code>tr</code> tags, dit staat voor table row.
+        Als laatst vul je de rijen met cellen. Hiervoor heb je de <code>td</code> tag wat voor table data staat,
+        ofterwijl de inhoud. Hoe dit samenwerkt kun je zien in de foto hiernaast, met de html code die daar bij past.
+        In deze tabel hebben we drie rijen en twee kolommen.
+      </p>
+      <p>
+        Naast de drie meest belangrijke tags voor de tabel heb je ook nog een speciale <code>th</code> tag.
+        Deze gebruik je om het kopje van de rij of kolom aan te geven. Het staat voor table header.
+        De <code>th</code> tag vervangt in dit verhaal de <code>td</code> tag.
       </p>
 
-      <pre><code>
-        &#60;!DOCTYPE html>
-        &#60;html>
-          &#60;head>
-            &#60;meta charset="utf-8">
-            &#60;title> Website titel &#60;/title>
-          &#60;/head>
-          &#60;body>
-            &#60;h1> h1 is een block tag &#60;/h1>
-            &#60;p>
-              De p is ook een blocktag, maar &#60;b>de b&#60;/b> tag niet.
-              html, head en body dan weer wel, maar img weer niet!
-            &#60;/p>
-          &#60;/body>
-        &#60;/html>
-      </code></pre>
       <h4> Opdracht </h4>
-      <ol>
-        <li> Neem onderstaande code over in een nieuw html bestand genaamd indentatie.html. Hierin is de indentatie weg gehaald</li>
-        <li> Voeg alle indentatie weer toe op de juiste plekken door middel van de tab toets.</li>
-        <li> Voeg een link toe naar indentatie.html aan de lijst van <a href="paginaLink.html"> navigeren opdracht 2</a>.</li>
-      </ol>
+      <p>
+        Maak een tabel met minstens twee rijen en drie kolommen op jouw website. Zorg ervoor dat je in de bovenste rij de <code>th</code> tag gebruikt.
+      </p>
+      <br>
+
 
       <span class="button"><a href="../skills.html"> Terug </a></span>
       <span class="right button"><a href="#.html"> Volgende <a> </span>

@@ -258,7 +258,7 @@ nav li a:hover.active {
 
 h4 {
   margin-bottom: 0px;
-  margin-top: 3px;
+  margin-top: 10px;
 }
 
 ol, ul {
@@ -291,6 +291,15 @@ footer {
   width: 100%;
   background-color: var(--main-s4);
   color: white;
+}
+
+#opdracht {
+  width: 50%;
+  color: #D800FF;
+  text-align: left;
+  text-indent: 5%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #code {

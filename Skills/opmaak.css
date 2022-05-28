@@ -37,6 +37,7 @@ rgb(132, 220, 34) - Groen
   --accent2: rgb(132, 220, 34);
   --accent2-s2: rgba(132, 220, 34, 0.8);
   --accent2-s4: rgba(132, 220, 34, 0.6);
+  --accent2-s10: rgba(220, 34, 132, 0.1);
 }
 
 body {
@@ -305,4 +306,16 @@ footer {
 #code {
   margin: 10px;
   margin-top: -15px;
+}
+
+.assignment {
+  background-color: var(--accent2-s10);
+  padding: 3px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#codeinside {
+  height: 200px;
 }

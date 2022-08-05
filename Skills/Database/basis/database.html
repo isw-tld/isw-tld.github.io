@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> .... </title>
+    <title> Relationele Databases </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
 
@@ -16,16 +16,75 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> .... </h2>
+      <h2> Relationele databases </h2>
       <p>
-
+        Om de werking van relationele databases beter te begrijpen gaan we kijken naar een voorbeeld. Het voorbeeld is vergelijkbaar met jouw schoolomgeving.
+        Je hebt je ooit ingeschreven voor deze school, hierbij heb je informatie over jezelf, naam, geboortedatum, geslacht, adres, telefoonnummer en e-mailadres.
+        Al deze gegevens worden daarna opgeslagen in een database tabel. Dit zal er ongeveer zo uitzien: <br>
+        Er is een tabel met de <span class="begrip">kolommen</span> gelabeld voor alle informatie, elke <span class="begrip">rij</span> wordt dan gevuld met de daadwerkelijke informatie,
+        elke leerling heeft daarin zijn eigen rij. Wanneer je meerdere tabellen hebt, link je deze
+        aan elkaar met de gegevens die je hebt. Zo kun je bijvoorbeeld een aparte tabel hebben voor de ouders en deze koppelen aan de leerlingen.
+        Als we de leerlingen tabel visualiseren ziet dat eruit zoals in de tabel hieronder.
       </p>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Naam</th>
+            <th>Geb. Datum</th>
+            <th>Geslacht</th>
+            <th>Adres</th>
+            <th>Tel. nr</th>
+            <th>E-mail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2344</td>
+            <td>Krystina Rogge</td>
+            <td>2003-06-19</td>
+            <td>M</td>
+            <td>Slijkstraat 1116,<br>1381 AZ Weesp</td>
+            <td>0612345678</td>
+            <td>RoggeKry@cloud.nl</td>
+          </tr>
+          <tr>
+            <td>2345</td>
+            <td>Lauraine Ceelen</td>
+            <td>2003-07-18</td>
+            <td>V</td>
+            <td>Bloemheuvel 107,<br>3769 JW Soesterberg</td>
+            <td>0687654321</td>
+            <td>ceelenL@outlook.com</td>
+          </tr>
+          <tr>
+            <td>2346</td>
+            <td>Sheryll Adair</td>
+            <td>2004-01-29</td>
+            <td>M</td>
+            <td>Staringlaan 133,<br>3351 TD Papendrecht</td>
+            <td>0656784312</td>
+            <td>Sherry@live.com</td>
+          </tr>
+          <tr>
+            <td>2347</td>
+            <td>Greg Van Veenen</td>
+            <td>2004-06-13</td>
+            <td>X</td>
+            <td>Tuinderspad 25,<br>4613 CB Bergen op Zoom</td>
+            <td>0643215678</td>
+            <td>g.v.v@cloud.nl</td>
+          </tr>
+        </tbody>
+      </table>
       <div class="assignment">
-        <h4> Opdracht </h4>
-
+        <h4> Opdracht 1</h4>
+        <p> Bedenk een rij om toe te voegen aan de tabel met daarin nog een leerling. Je mag jouw eigen gegevens invullen, maar je mag ook gebruik maken van een random generator website zoals bijvoorbeeld <a href="https://www.fakeaddressgenerator.com/World/Netherlands_address_generator" target="_blank">deze</a>.</p>
+        <h4> Opdracht 2</h4>
+        <p> Stel dat je een tabel voor de ouders moet maken, welke kolommen zou je dan nodig hebben? </p>
       </div>
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="#"> Volgende </a> </span>
+      <span class="right button"><a href="usbwebserver.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

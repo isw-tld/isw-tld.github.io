@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> .... </title>
+    <title> Benodigdheden </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
 
@@ -16,14 +16,60 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> .... </h2>
+      <h2> USBWebserver </h2>
       <p>
+        Voor deze module heb je het programma USB-webserver nodig.
+        Dit is een programma wat het allerbest draait als je het op een <span class=begrip>USB-stick</span> zet en deze meeneemt naar school en huis.
+        Zo behoudt je de bestanden die je nodig hebt.
+        <br>Dit programma draait alleen op Windows, dus als je thuis een Mac gebruikt heb je <a target="_blank" href="mac.html">MAMP</a> nodig.
+        Dit is een ander programma die het zelfde doel heeft. Let op! Als je MAMP gebruikt, of besluit om geen USB-stick mee te nemen,
+        dan moet je telkens de bestanden overzetten van jouw computer naar de schoolcomputer.
+        Als je dit niet doet, dan heb je de bestanden niet bij de hand. Zorg er dan dus voor dat je het elke keer upload naar OneDrive.
+        <br>
+        Soms komt het voor dat je een foutmelding krijgt van USB-webserver, of dat het gewoon niet werkt. TLD probeert de oplossingen hiervoor
+        te verzamelen en te noteren op de pagina <a target="_blank" href="problemen.html">problemen</a>.
+      </p>
+      <p>
+        Als het goed is hebben we vanaf dit jaar <a target="_blank" href="https://visualstudio.microsoft.com/services/live-share/"> Visual Studio Code </a> op de schoolcomputer staan. Dit is een tekstbewerker net als NotePad++,
+        het verschil hiermee is dat Atom meer mogelijkheden heeft, waaronder samenwerken via Live Share. Al is er nog niet onderzocht of dit ook
+        op de schoolcomputers werkt. Al hebben ze wel ook een webclient tegenwoordig!
+      </p>
+      <div class="assignment">
+        <h4> Opdracht 1</h4>
+        Download de ZIP van USBWebserver van magister en pak deze uit op je USB-stick.
+        Neem je USB-stick mee naar elke les!
+      </div>
+      <h3> Database gebruiken </h3>
+      <p>
+        We gaan nu voor het eerst een echte database bekijken, open USBWebserver en kijk of naast de Apache en de MySQL beide een groen vinkje staat.
+        Er zijn een paar redenen waarom dit niet het geval zou zijn, raadpleeg dan de pagina <a target="_blank" href="problemen.html">problemen</a>.
+      </p>
+      <p>
+        Als USB-Webserver gereed is ben je klaar om voor het eerst naar een <span class="begrip">DBSM</span> te kijken, dit staat voor database management system.
+        Zoals de naam al zegt is dit een programma die je helpt om jouw database te beheren.
+        Dit programma zorgt ervoor dat je databases kan openen, bevragen, veranderen en verwijderen. Wij gebruiken  <span class="begrip">PHPMyAdmin</span>.
+        In opdracht 2 leer je hoe je een database kan invoegen in PHPMyAdmin.
 
       </p>
       <div class="assignment">
-        <h4> Opdracht </h4>
+        <h4> Opdracht 2</h4>
+        <ol>
+          <li>Start USB-Webserver en klik op de PHPMyAdmin knop.</li>
+          <li>Log in met de gegevens die op het scherm vermeld zijn. De inlog gegevens voor Mac zijn anders, daar is zowel de naam als het wachtwoord <code>root</code></li>
+          <li>Ga naar de ZIP op magister die bij het lesmateriaal hoort. Sla hem ergens op waar jij er makkelijk bij komt. Vergeet hem niet uit te pakken.</li>
+          <li>Open het mapje voor hoofdstuk 1, hier zie je een sql bestand genaamd database.</li>
+          <li>Ga in PHPMyAdmin naar het knopje voor importeren en voeg daar het sql bestand in.</li>
+        </ol>
+
+        <h4> Opdracht 3</h4>
+        <ol class="abc">
+          <li>Hoeveel leerlingen kun je zien? </li>
+          <li>Welke andere tabellen zijn er? </li>
+          <li>Benoem voor één tabel alle kolommen die in die tabel zit. </li>
+        </ol>
 
       </div>
+
       <button onclick="history.back()">Terug</button>
       <span class="right button"><a href="#"> Volgende </a> </span>
     </div>

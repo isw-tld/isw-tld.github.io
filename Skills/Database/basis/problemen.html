@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Problemen </title>
+    <link rel="stylesheet" href="../../../opmaak.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
+
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../../../index.html">Home</a></li>
+        <li><a href="../skills.html">Website maken</a></li>
+        <li><a class="active" href="../../Database/skills.html">Databases</a></li>
+      </ul>
+    </nav>
+    <div class="content basis">
+      <h2> Problemen met USBWebserver </h2>
+      <p>
+        De USBwebserver is een programma wat ervoor zorgt dat jouw website kan werken. Een paar belangrijke dingen:
+        <ol>
+          <li>Je moet je website opstarten vanuit de knop localhost, je kunt het NIET gestart worden vanuit notepad++ of Visual Studio Code doen zoals je in de vierde klas kon doen.</li>
+          <li>Zorg ervoor dat Apache en Mysql allebei een vinkje hebben, anders werkt je website niet.</li>
+          <li>Zorg ervoor dat alle bestanden op de goede plek staan. Dit betekent dat alle bestanden in jouw root map staan. Als je er niet uit komt kan je altijd aan je docent om hulp vragen.</li>
+        </ol>
+      </p>
+      <h3> Website werkt niet </h3>
+      <p>
+        Soms komt het voor dat de website niet werkt. Je hebt bijvoorbeeld een uitroepteken staan bij de apache server in de USBwebserver.
+        Om dit op te lossen is het van belang dat je kijkt naar de instellingen. Hierin staat een invulveld voor de root map.
+        Deze map moet bestaan.
+        <br>
+        Voor sommige computers is de root map ingesteld op OneDrive. Je ziet dan iets wat begint met <code>O:/</code>.
+        De mappen die hier achter staan moeten dan ook bestaan op jouw OneDrive.
+        Bijvoorbeeld als er staat <code>O:/informatica</code>, dan moet in jouw OneDrive map een mapje zijn die “informatica” heet.
+        Als die er niet is, moet je dat mapje even maken. In die map ga je nu je webpagina’s voor je opdrachten of PO maken.
+        <br>
+        Niet iedereen heeft toegang tot OneDrive op de computer, verander in dat geval de root map naar <code>{path}/root</code> om apache te laten werken.
+        Nu moet je de veranderingen opslaan en start apache opnieuw op.
+        Als je deze map wilt vinden op de computer dan moet je als je de USBwebserver opstart klikken op <span class="begrip">root dir</span>.
+      </p>
+      <!-- <h3>  Database werkt niet </h3>
+      <p>
+        Het kan voorkomen dat de database in PHPmyAdmin vreemd doet en bijvoorbeeld de volgende error geeft:
+        <ol>
+          <li>Open de USBwebserver en klik op de map root dir</li>
+          <li>Druk op je toetsenbord alt en pijltje omhoog tegelijk in. Hiermee ga je een mapje omhoog.</li>
+          <li>Klik nu op het mapje mysql en daarna op het mapje data.</li>
+          <li>Maak een nieuwe map aan en geef hem de naam van de database die je wilt maken. Bijvoorbeeld: “School”</li>
+          <li> Ga nu terug naar de website van PHPmyAdmin en als het goed is staat er nu aan de linker kant jouw nieuwe database. Als je daar op klikt kun je nu tabellen in maken.</li>
+        </ol>
+        Als het dan nog steeds niet werkt, sluit de USBwebserver af en start hem opnieuw op. Werkt het dan nog niet? Vraag dan even de docent om hulp.
+      </p> -->
+      <!-- <div class="assignment">
+        <h4> Opdracht </h4>
+
+      </div> -->
+      <button onclick="history.back()">Terug</button>
+      <span class="right button"><a href="#"> Volgende </a> </span>
+    </div>
+  </body>
+</html>

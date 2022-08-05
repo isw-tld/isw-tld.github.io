@@ -235,6 +235,25 @@ nav li a:hover.active {
   width: 85%;
 }
 
+button {
+  all: unset;
+  background-color: var(--accent1-s4);
+  color: black;
+  border: 2px solid var(--accent1);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: var(--accent1);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 .button a:link,.button a:visited {
   background-color: var(--accent1-s4);
   color: black;
@@ -318,4 +337,9 @@ footer {
 
 #codeinside {
   height: 200px;
+}
+
+article {
+  padding: 10px;
+  margin-bottom: 10px;
 }

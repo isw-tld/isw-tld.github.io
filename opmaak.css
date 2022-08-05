@@ -56,11 +56,11 @@ body {
   background-color: var(--main-t4);
 }
 
-.html {
+.sql, .html {
   background-color: var(--main-t6);
 }
 
-.stijl {
+.maken, .stijl {
   background-color: var(--main-t8);
 }
 

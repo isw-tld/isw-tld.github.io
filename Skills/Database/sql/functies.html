@@ -16,13 +16,88 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> .... </h2>
+      <h2> Functies </h2>
       <p>
+        We hebben nu de eerste basis queries gemaakt. Nu wordt het tijd om wat meer functionaliteit toe te voegen.
+        hiervoor heb je zelf al gezocht naar de jongste en oudste leerling, maar als er 1000 leerlingen op een school zijn
+        gaat dit wel even duren, gelukkig kan het ook makkelijker.
+        Bij het SELECT keyword kun je ook gebruik maken van functies een voorbeeld hiervoor zou zijn:
+        <pre><code>
+        SELECT MAX(geboortedatum) 
+        FROM Leerlingen
+        </code></pre>
+        In deze query krijg je één resultaat terug met alleen maar de grootste geboortedatum die gevonden kon worden.
+        Dit betekent in dit geval, de jongste leerling.
+        Als je dit op tekst zou uitvoeren dan krijg je het resultaat wat als laatste zou voorkomen in het alfabet,
+        en op nummers natuurlijk het grootste getal. Je kunt dit ook omdraaien door <code>MIN(&#60;kolom>)</code> te gebruiken.
+        Andere functies die je moet kennen zijn:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Functie</th>
+            <th>Omschrijving</th>
+            <th>Voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SUM(&lt;kolom&gt;) </td>
+            <td>Telt alle waardes uit de kolom bij elkaar op.</td>
+            <td>SELECT SUM(boete)<br>FROM boetes</td>
+          </tr>
+          <tr>
+            <td>AVG(&lt;kolom&gt;) </td>
+            <td>Berekent het gemiddelde van de waardes uit de kolom </td>
+            <td>SELECT AVG(cijfer) <br>FROM cijfers</td>
+          </tr>
+          <tr>
+            <td>COUNT(&lt;kolom&gt;) </td>
+            <td>Telt de hoeveelheid waardes uit de kolom</td>
+            <td>SELECT COUNT(*)<br>FROM leerlingen</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="assignment">
+        <h4> Opdracht </h4>
+        <ol class="abc">
+          <li> Importeer de database van hoofdstuk 2 in PHPMyAdmin. Dit is een andere database die makkelijker gebruik maakt van de functies die we in deze paragraaf leren.</li>
+          <li> Schrijf een query om de totale aantal bloemen te bepalen.</li>
+        </ol>
+      </div>
+      <h3> Groeperen </h3>
+      <p>
+        Count kan heel handig zijn om bijvoorbeeld te bekijken hoeveel leerlingen een bepaalde eigenschap hebben.
+        Je kunt bijvoorbeeld kijken hoeveel leerlingen er per geslacht zijn.
+        Hiervoor hebben we alleen nog een ander keyword nodig genaamd <span class="begrip">GROUP BY</span>.
+        Dit keyword gebruik je om een bepaalde kolom samen te voegen hiermee kun je bijvoorbeeld een functie maken zoals:
+        <pre><code>
+        SELECT COUNT(*), geslacht
+        FROM leerlingen
+        GROUP BY geslacht
+        </code></pre>
 
+        <h3> Dubbelen weg halen </h3>
+        Wat je doet bij GROUP BY, is het groeperen van alle unieke waardes uit de kolom.
+        Voor de bloemen uit opdracht 8 kun je bijvoorbeeld alle kleuren groeperen, of bijvoorbeeld alle soorten.
+        Er is ook een manier om alleen de unieke waardes te vinden van een kolom.
+        Dit doe je door een keyword toe te voegen aan SELECT, namelijk <span class="begrip">DISTINCT</span>.
+        In het voorbeeld kun je zien dat deze niet op dezelfde manier gebruikt wordt als de andere functies uit deze paragraaf.
+        <pre><code>
+        SELECT DISTINCT kleur
+        FROM bloemen
+        </code></pre>
+
+        Het resultaat wat hier uit komt is een lijst met daarin 1x alle kleuren die voorkomt in de kolom kleur.
       </p>
       <div class="assignment">
         <h4> Opdracht </h4>
-
+        <ol class="abc">
+          <li>Schrijf een query om te zien hoeveel bloemen er zijn per kleur. Gebruik hierbij de GROUP BY keywords.</li>
+          <li>Schrijf een query om alle soorten te vinden van de bloemen in de database.</li>
+          <li>Schrijf een query om het gemiddelde aantal bloemen te vinden van elke geregistreerde bloem uit de
+          database.</li>
+        </ol>
       </div>
       <button onclick="history.back()">Terug</button>
       <span class="right button"><a href="filteren.html"> Volgende </a> </span>

@@ -169,6 +169,7 @@ h1 {
 }
 
 p {
+  margin-top: 0px;
   margin-bottom: 0px;
 }
 
@@ -299,9 +300,13 @@ pre {
 }
 
 table, td{
+  /* margin: 3px; */
   padding-left: 5px;
   padding-right: 5px;
-  min-width: 150px;
+}
+
+.query {
+    min-width: 184px;
 }
 
 th.mid {
@@ -348,4 +353,9 @@ article {
 
 .abc {
   list-style-type: lower-alpha;
+}
+
+.fill {
+  float: none;
+  overflow: hidden;
 }

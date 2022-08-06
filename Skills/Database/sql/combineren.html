@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> .... </title>
+    <title> Combineren </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
 
@@ -16,16 +16,310 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> .... </h2>
+      <h2> Combineren van tabellen</h2>
       <p>
-
+        In het volgende hoofdstuk leer je dat het gebruikelijk is om een database
+        in kleinere stukjes te breken. We kunnen best alle gegevens in de bloemen
+        tabel stoppen, maar dat is niet overzichtelijk. In plaats daarvan hebben
+        we ook nog de tabel voor de werknemers en de boeket tabel. In deze
+        paragraaf hebben we het voornamelijk over de boeket tabel. Hierin lijkt
+        voornamelijk veel getallen te staan, maar deze getallen hebben betekenis.
+        In de kolom voor center zijn de nummers gekoppeld aan de bloemen tabel.
+        Het nummer staat voor het ID van de bloemen. <b>Met behulp van het <span class="begrip">ID</span> kunnen
+        we alle informatie over de bloemen opzoeken die we nodig hebben</b>.
+        Het zelfde geld voor de maker kolom. Deze nummers zijn gekoppeld aan de
+        werknemers tabel. Elk nummer is het ID van een werknummer waardoor je kan
+        zie wie het boeket gemaakt heeft, zo weet je wie je een bericht moet
+        sturen als je nog een versie van het boeket wilt. In SQL hebben we wel de
+        mogelijkheid om de tabellen te combineren voor queries. Hierin hebben we twee versies:
+        <ol>
+          <li>Sub-Query</li>
+          <li>Join-Query</li>
+        </ol>
+      </p>
+      <h3>Sub-Query</h3>
+      <p>
+        Eerst gaan we het hebben over <span class="begrip">sub-queries</span>. Deze queries maken gebruik
+        van de WHERE clause om queries te linken. De structuur ziet er dan als
+        volgt uit met daarnaast een voorbeeld: 
+      </p>
+      <pre class="left"><code>
+        SELECT &lt;kolommen>
+        FROM &lt;tabel>
+        WHERE ID IN (
+          SELECT ID
+          FROM &lt;tabel2>
+          &lt;andere clauses>
+        )
+      </code></pre>
+      <pre class="left fill"><code>
+        SELECT *
+        FROM boeket
+        WHERE center in (
+          SELECT ID
+          FROM bloemen
+          WHERE kleur = "rood"
+        )
+      </code></pre>
+      <p>
+        In het voorbeeld hebben we een query gemaakt om alle boeketten te vinden
+        die een rood center heeft. Hiervoor moeten we eerst weten welke bloemen
+        er allemaal rood zijn, dit is de query tussen haakjes. Dan zoeken we in
+        alle boeketten naar welke center bloemen overeenkomen met de ID’s van de
+        rode bloemen. Hiervoor hebben we de operator <span class="begrip">IN</span> nodig. Dit is een tegenhanger
+        van = waarbij we zoeken in meerdere waardes te bekijken. Hierna heb je wel
+        altijd een lijst aan waardes nodig. Je kunt het ook gebruiken als een
+        kortere versie van OR voor een enkele kolom. Je kunt op <a target="_blank" href="https://www.w3schools.com/sql/sql_in.asp">W3Schools</a> kijken
+        naar hoe dat werkt als je daar interesse in hebt.
+      </p>
+      <p>
+        <b>Sub-qeuries zijn handig als je niet de informatie uit de subquery wilt weergeven</b>,
+        alleen nodig hebt om de query te maken. <b>Deze queries zijn erg snel</b>.
+        Wanneer je sub-queries maakt kun je het beste het
+        volgende stappenplan aanhouden:
+        <ol>
+          <li>Identificeer de queries die je nodig gaat hebben, welke dingen wil je weten.</li>
+          <li>Schrijf eerst de binnenste query en probeer deze uit. Zorg dat je de gegevens krijgt die je wilt hebben.</li>
+          <li>Schrijf hierna de buitenste query, zorg ervoor dat je alleen op de ID matched.</li>
+        </ol>
       </p>
       <div class="assignment">
-        <h4> Opdracht </h4>
+        <h4> Opdracht 1</h4>
+        <ol class="abc">
+          <li>Schrijf een query om erachter te komen welke boeketten een paars center stuk hebben.</li>
+          <li>Schrijf een query om er achter te komen welke boeketten geen oranje center stuk hebben.</li>
+          <li>Schrijf een query om er achter te komen welke medewerkers er een boeket hebben gemaakt.</li>
+        </ol>
+      </div>
 
+
+      <h3>Join-Query</h3>
+      <p>
+        De andere manier voor combineren is door tabellen aan elkaar te koppelen.
+        Dit heet een <span class="begrip">join-query</span>. Om een join-query te maken gebruik je in plaats
+        van een tabel in de from clause, meerdere tabellen. We zullen nu eerst een
+        voorbeeld bekijken voor twee kleine tabellen:
+      </p>
+      <table class="left">
+        <caption style="caption-side:bottom"><i>Eten</i></caption>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Waarde</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>Pizza</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Brood</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Patat</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Broccoli</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table class="left fill">
+        <caption style="caption-side:bottom"><i>Kleur</i></caption>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Waarde</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>Rood</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Bruin</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Geel</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Groen</td>
+        </tr>
+        </tbody>
+      </table>
+      <br>
+      <p>
+        In deze tabellen wordt het ID gebruikt om de kleur van het eten te koppelen.
+        We kunnen een Join-query gebruiken om een overzicht te krijgen van welke kleur het eten heeft.
+        Hiervoor gebruiken we de volgende query:
+      </p>
+      <pre><code>
+      SELECT *
+      FROM eten, kleur
+      </code></pre>
+      <table class="right">
+        <thead>
+          <tr>
+            <th>eten.ID</th>
+            <th>eten.Waarde</th>
+            <th>kleur.ID</th>
+            <th>kleur.Waarde</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Pizza</td>
+            <td>1</td>
+            <td>Rood</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Pizza</td>
+            <td>2</td>
+            <td>Bruin</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Pizza</td>
+            <td>3</td>
+            <td>Geel</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Pizza</td>
+            <td>4</td>
+            <td>Groen</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Brood</td>
+            <td>1</td>
+            <td>Rood</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Brood</td>
+            <td>2</td>
+            <td>Bruin</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Brood</td>
+            <td>3</td>
+            <td>Geel</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Brood</td>
+            <td>4</td>
+            <td>Groen</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Patat</td>
+            <td>1</td>
+            <td>Rood</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Patat</td>
+            <td>2</td>
+            <td>Bruin</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Patat</td>
+            <td>3</td>
+            <td>Geel</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Patat</td>
+            <td>4</td>
+            <td>Groen</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Broccoli</td>
+            <td>1</td>
+            <td>Rood</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Broccoli</td>
+            <td>2</td>
+            <td>Bruin</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Broccoli</td>
+            <td>3</td>
+            <td>Geel</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Broccoli</td>
+            <td>4</td>
+            <td>Groen</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Hiernaast zie je wat het exacte resultaat is van de query. Het valt op dat
+        elke kleur aan elk eten gekoppeld is, dat is niet
+        wat we hadden gewild. Dit vertelt gelijk wat de moeilijkheid is van een join-query.
+        Je moet SQL vertellen welke waardes bij elkaar horen. Gezien zowel de kleur
+        als eten tabel gebruik maken van de kolommen ID en Waarde, kunnen we niet verwachten
+        dat SQL snapt wat je bedoelt als je zegt id = id. Om dit duidelijk te maken
+        moeten we vertellen uit welke tabel de kolom komt. In dit geval zou dit
+        <code>kleur.id</code> en <code>eten.id</code> zijn, <b>Deze voorwaarde voegen we dan ook toe aan de
+        de WHERE clause</b> als <code> kleur.id = eten.id</code>. SQL maakt dan eerst de lange tabel van hiervoor,
+        en daarna verwijdert hij alle waardes die niet kloppen. De uiteindelijke query is dan:
+      </p>
+      <pre><code>
+        SELECT eten.waarde as gerecht,
+          kleur.waarde as gerechtkleur
+        FROM eten, kleur
+        WHERE eten.id = kleur.id
+      </code></pre>
+      <p>
+        Je ziet dat ook bij SELECT gebruikt wordt gemaakt van de <code>tabel.kolom</code> notatie.
+        Dit is omdat we ook daar nog moeten vertellen wat we willen zien. <br>
+        In de select clause zie je nog een nieuw keyword genaamd <span class="begrip">AS</span>.
+        Dit keyword helpt met het hernoemen van kolommen zodat je beter de betekenis kan zien bij het overzicht,
+        maar ook zodat je ze kan gebruiken bij bijvoorbeeld het sorteren. Hierna kun je deze kolommen benoemen zoals je ze hebt genoemd. 
+      </p>
+      <p>
+        Het maken van de volledige tabel maakt <b>join-queries erg langzaam</b>, zeker in vergelijking met de sub-queries.
+        <b>Join-queries zijn de oplossing als je de waardes uit de tweede tabel ook wilt weergeven in het resultaat.</b>
+      </p>
+      <p>
+        Voor het maken van een join-query kun je het beste het volgende stappenplan aanhouden:
+        <ol>
+          <li>Bedenk uit welke tabellen je informatie nodig hebt.</li>
+          <li>Zorg ervoor dat je alle tabellen met elkaar verbindt. </li>
+        </ol>
+      </p>
+      <div class="assignment">
+        <h4> Opdracht 2</h4>
+        <ol class="abc">
+          <li>Maak een query om alle kleuren van de boeketten te vinden, laat zowel de boeket naam als de kleur zien in het resultaat.</li>
+          <li>Maak een query om alle medewerker namen van de boeketten te vinden, laat zowel de boeket naam als de naam van de medewerker zien.</li>
+          <li>Waaraan kun je zien of je een Join of sub query moet gebruiken?</li>
+        </ol>
       </div>
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="../skills.html"> Volgende </a> </span>
+      <span class="right button"><a href="oefenen.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

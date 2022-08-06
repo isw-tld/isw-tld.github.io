@@ -16,16 +16,52 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> .... </h2>
+      <h2> Queries </h2>
       <p>
-
+        <span class="begrip">SQL</span> is een taal die we gebruiken voor database vragen, het is een acroniem voor <span class="begrip">Structured Query Language</span>.
+        Hieruit kun je lezen dat het een gestructureerde taal is die bedoelt is voor queries.
+        Een <span class="begrip"> query </span> is een vraag die je stelt aan de database. Als je een query uitvoert dan zijn er drie opties:
+        <ol>
+          <li>Je krijgt de bijbehorende rijen terug</li>
+          <li>Je krijgt niets terug, er is geen resultaat </li>
+          <li>De query runt niet, je hebt een foutmelding</li>
+        </ol>
+        <b>Afhankelijk van het resultaat wat je terug krijgt kun je concluderen of je de query goed hebt gemaakt</b>, maar nu lopen we te ver vooruit.
       </p>
+      <h3>Structuur</h3>
+      <p>De structuur die gebruikt wordt in de basis van een query ziet er als volgt uit:</p>
+      <pre><code>
+        SELECT &#60;kolommen>
+        FROM &#60;tabellen>
+      </code></pre>
+      <p>
+        Wat je hier ziet is dat we beginnen met het woord <span class="begrip">SELECT</span>,
+        dit is een <span class="begrip">keyword</span> om te vertellen wat we willen weten.
+        Daarachter staat <code>&#60;kolommen></code> dit is een <span class="begrip">placeholder</span>.
+        <b>De haakjes en het woord kolommen schrijf je niet op,</b>
+        in plaats daarvan zeg je bijvoorbeeld naam of geboortedatum om deze kolommen van de leerlingen op te vragen.
+        Het is belangrijk om te weten dat <b>SQL niet hoofdletter gevoelig is</b>, het maakt dus niet uit of je Naam, NAAM of naam gebruikt.
+        Het zelfde geld hier voor de tabellen. We gebruiken hiervoor het keyword <span class="begrip">FROM</span>
+        om te vertellen uit welke tabel de kolommen gehaald moeten worden,
+        hierbij vul je de naam van de tabel in. Tot nu toe hebben we nog niet officieel een naam gegeven aan onze tabellen,
+        <b>zorg ervoor dat je naam beschrijft wat het is</b>, zitten er leerlingen in de tabel, dan noem je het leerlingen,
+        is het voor de ouders, dan noem je het ouders. Maak het niet te moeilijk.
+      </p>
+      <p>
+        Wanneer je meerdere kolommen wilt zien maak <b>je gebruik van een comma tussen de kolommen</b> in.
+        Hier een volledig voorbeeld voor het opvragen van alle namen en e-mail adressen van de leerlingen.
+        Je kunt ook alle kolommen vragen door in plaats van de namen van de kolommen een * te gebruiken.
+        Let op! Je kunt dan geen specifieke kolommen neerzetten naast een *. 
+      </p>
+      <img src="../foto/select_example.png" alt="Voorbeeld waarin wordt getoont dat SELECT a, b goed is, select * goed is, maar select *, a incorrect is." width="95%">
       <div class="assignment">
         <h4> Opdracht </h4>
-
+          <p>
+            Maak een query voor het zoeken naar alle namen, geboortedatum en adres van de leerlingen. Maak hem eerst op papier, daarna kun je hem proberen in het SQL-tabblad van PHPMyAdmin.
+          </p>
       </div>
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="#"> Volgende </a> </span>
+      <span class="right button"><a href="functies.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

@@ -301,6 +301,7 @@ pre {
 table, td{
   padding-left: 5px;
   padding-right: 5px;
+  min-width: 150px;
 }
 
 th.mid {

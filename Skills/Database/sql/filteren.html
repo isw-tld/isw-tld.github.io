@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> .... </title>
+    <title> Gegevens filteren </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
 
@@ -16,13 +16,142 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> .... </h2>
+      <h2> Filteren </h2>
       <p>
-
+        Je kunt met SQL ook gebruik maken van het keyword <span class="begrip">WHERE</span>.
+        Deze gebruik je om de waardes die je hebt te filteren.
+        Stel je bijvoorbeeld voor dat je wilt weten welke bloemen allemaal een witte kleur hebben,
+        dan kun je gebruik maken van de WHERE clause om ervoor te zorgen dat je alleen maar bloemen ziet waarbij de kleur gelijk is aan wit.
+        Hier onder zie je het template en het voorbeeld voor de witte bloemen.
       </p>
+      <pre><code>
+    SELECT DISTINCT kleur
+    FROM bloemen
+      </code></pre>
+      <p>
+        Wat je kunt zien is dat je in de where clause gebruik maakt van bepaalde condities.
+        Deze kun je vergelijken met normale programmeer condities we kennen de volgende <span class="begrip">operatoren</span>:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Operator</th>
+            <th>Beschrijving</th>
+            <th>Voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>=</td>
+            <td>Is exact het zelfde als</td>
+            <td>SELECT * <br>FROM bloemen <br>WHERE kleur = "wit" </td>
+          </tr>
+          <tr>
+            <td>&gt;</td>
+            <td>Groter dan, werkt ook op tekst, dan wordt gekeken naar het alphabet</td>
+            <td>SELECT * <br>FROM bloemen <br>WHERE aantal &gt; 200 </td>
+          </tr>
+          <tr>
+            <td>&lt;</td>
+            <td>Kleiner dan, werkt ook op tekst, dan wordt gekeken naar het alphabet</td>
+            <td>SELECT * <br>FROM bloemen <br>WHERE aantal &lt; 5 </td>
+          </tr>
+          <tr>
+            <td>&gt;=</td>
+            <td>Groter of gelijk aan, werkt ook op tekst, dan wordt gekeken naar het alphabet</td>
+            <td>SELECT * <br>FROM bloemen <br>WHERE aantal &gt;=100 </td>
+          </tr>
+          <tr>
+            <td>&lt;=</td>
+            <td>Kleiner of gelijk aan, werkt ook op tekst, dan wordt gekeken naar het alphabet</td>
+            <td>SELECT * <br>FROM bloemen <br>WHERE aantal &lt;=50 </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Soms wil je weten welke dingen er niet zijn. Bijvoorbeeld, stel je wilt weten welke kleuren bloemen er allemaal zijn,
+        maar rood vind je geen mooie kleur dus die hoeft er niet bij te zitten. Hiervoor kun je de operator <span class="begrip">NOT</span> gebruiken.
+        De makkelijkste manier om dit te doen is door <b>alles wat je negatief wilt maken tussen haakjes te zetten en daarvoor NOT te zetten</b> bijvoorbeeld:
+      </p>
+      <pre><code>
+    SELECT DISTINCT kleur
+    FROM bloemen
+    WHERE NOT (kleur = "rood")
+      </code></pre>
+
+      <h3>Condities combineren</h3>
+      <p>
+        Je kunt bij deze voorwaardes ook condities combineren met <span class="begrip">AND</span> en <span class="begrip">OR</span>.
+        Hiermee kun je bijvoorbeeld vragen om alle bloemen die wit of zwart zijn,
+        of bijvoorbeeld alle bloemen die rood zijn en waar er meer dan 50 van op voorraad zijn.
+        Zie hiervoor het volgende voorbeeld:
+      </p>
+      <pre><code>
+    SELECT *
+    FROM bloemen
+    WHERE aantal >= 50
+      AND kleur = "rood"
+      </code></pre>
+      <p>
+        De condities moeten allemaal hetzelfde opgebouwd worden: <code class="begrip">&lt;kolom> &lt;operator> &lt;waarde></code>.
+        Ook als je twee verschillende kleuren wilt bekijken moet je nog steeds twee keer de kolom opschrijven.
+      </p>
+      <img src="../foto/and_example.png" alt="Voorbeeld laat zien dan kleur 'wit' and 'zwart' incorrect is." height="55px">
+
+      <h3>Ongeveer zoals...</h3>
+      <p><span class="begrip">LIKE</span> is een speciale operator die ervoor zorgt dat je informatie kan zoeken als je niet exact weet hoe je het moet schrijven,
+        of hoe het geschreven is. Bijvoorbeeld wanneer je niet weet of een woord in enkelvoud of meervoud geschreven is.
+        De = zoekt alleen naar dingen die echt exact het zelfde zijn, LIKE is dus de oplossing voor als je het niet weet,
+        of als je meerdere eigenschappen zoekt. Hiervoor zet je een placeholder in de query, je hebt twee opties: <b>_ voor het vervangen van 1 teken</b>
+        of <b>% voor 0 of meer tekens</b>. Bijvoorbeeld a% zal dus zoeken naar alles wat begint met een A, en a_
+        zoekt alleen naar twee letterwoorden die beginnen met een A.
+      </p>
+      <table>
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Beschrijving</th>
+          <th>Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>LIKE</td>
+          <td>Is ongeveer het zelfde als. Dit wordt gebruikt in combinatie met _ en %.</td>
+          <td>SELECT * <br>FROM bloemen <br>WHERE soort LIKE "A%" </td>
+        </tr>
+      </tbody>
+      </table>
+
+      <h3>Opmaak</h3>
+      <p>
+        De <span class="begrip">indentatie</span> voor de AND en OR wordt toegevoegd om ervoor te zorgen dat het makkelijk leesbaar is, net als bij HTML.
+        Het is niet van belang voor de werking van de code, maar wel voor de leesbaarheid! De indentatie kun je toevoegen met de tab knop op je toetsenbord.
+      </p>
+      <p>
+        Het is bij de WHERE clause van belang om te weten dat <b>woorden die je gebruikt tussen <span class="begrip">quotatie</span> tekens moeten</b>.
+        Let op! Als je in Word de quote tekens maakt, dan werken ze niet in de SQL code.
+        Zie het verschil tussen “rood” en "rood". Alleen de tweede versie van rood werkt in SQL.
+        Alle <b>getallen zet je niet tussen deze quotes</b>, anders telt het als tekst in plaats van een getal.
+      </p>
+
       <div class="assignment">
         <h4> Opdracht </h4>
-
+        <ol class="abc">
+          <li>Schijf een query om alle bloemen te vinden die rood of geel zijn.</li>
+          <li>Maak een query om alle werknemers te vinden die geen a in hun naam hebben.</li>
+          <li>Schijf een query om een om alle paarse bloemen te vinden waar er meer dan 5 op voorraad van zijn.</li>
+          <li>Schijf een query om alle bloemen te vinden die eindigen op het woord bloem.</li>
+          <li>Stel je moet een postcode opzoeken, zet je de postcode dan wel of niet tussen quotes?</li>
+          <li>Zoek met behulp van maximaal 1 query uit hoe de blauwe regen geschreven is in de database. Je
+          weet dat het een van de volgende opties is: </li>
+          <ul>
+            <li>Blauwe regen</li>
+            <li>Blauweregen</li>
+            <li>Blauwe-regen</li>
+            <li>Blauwe_regen </li>
+          </ul>
+        </ol>
       </div>
       <button onclick="history.back()">Terug</button>
       <span class="right button"><a href="combineren.html"> Volgende </a> </span>

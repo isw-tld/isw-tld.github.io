@@ -23,6 +23,7 @@ rgb(34, 132, 220) - Blauw
 rgb(220, 34, 132) - Roze
 rgb(132, 220, 34) - Groen
 */
+
 :root {
   --main: rgb(34, 132, 220);
   --main-s2: rgb(26, 99, 165);
@@ -32,12 +33,14 @@ rgb(132, 220, 34) - Groen
   --main-t6: rgb(172, 209, 242);
   --main-t8: rgb(200, 224, 246);
   --main-t10: rgb(227, 240, 251);
+  
   --accent1: rgb(220, 34, 132);
   --accent1-s2: rgba(220, 34, 132, 0.8);
+  --accent1-s10: rgba(220, 34, 132, 0.1);
+
   --accent2: rgb(132, 220, 34);
   --accent2-s2: rgba(132, 220, 34, 0.8);
   --accent2-s4: rgba(132, 220, 34, 0.6);
-  --accent2-s10: rgba(220, 34, 132, 0.1);
 }
 
 body {
@@ -335,7 +338,7 @@ footer {
 }
 
 .assignment {
-  background-color: var(--accent2-s10);
+  background-color: var(--accent1-s10);
   padding: 3px;
   padding-bottom: 10px;
   margin-bottom: 10px;

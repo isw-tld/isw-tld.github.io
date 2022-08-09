@@ -16,16 +16,172 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> .... </h2>
+      <h2>Database maken</h2>
       <p>
-
+        Het maken van een database lijkt op het opzoeken van data. Ook hiervoor
+        kun je een query gebruiken. Het belangrijkste is dat je eerst een
+        strokendiagram hebt zoals verteld in hoofdstuk 3. Daarna bedenk je wat
+        het <span class="begrip">datatype</span> is van de gegevens die je verwerkt, welk soort de data is.
+        Dan zijn we klaar om de query te maken.
       </p>
-      <div class="assignment">
-        <h4> Opdracht </h4>
+      <table>
+      <thead>
+        <tr>
+          <th><span style="font-weight:700">Datatype</span></th>
+          <th><span style="font-weight:700">Beschrijving</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CHAR(&lt;aantal&gt;) VARCHAR(&lt;aantal&gt;)</td>
+          <td>CHAR staat voor tekst. Wanneer je dit datatype gebruikt moet je het
+            maximale aantal tekens opgeven. CHAR(15) staat voor een tekst van
+            maximaal 15 tekens.<br>Een soortgelijk datatype is VARCHAR, dit staat
+            voor tekst met een variabele lengte.<br>Met gegevens van deze typen
+            kan niet gerekend worden.</td>
+        </tr>
+        <tr>
+          <td>SMALLINT  INT</td>
+          <td>Wanneer er wel gerekend moet kunnen worden hebben we de keus uit
+            een aantal datatypen. Gaat het om betrekkelijk kleine gehele getallen,
+            dan is SMALLINT heel gebruikelijk.<br>Voor grote gehele getallen gebruiken
+            we het datatype INT. Het verschil zit in de hoeveelheid geheugenplaatsen
+            die voor de opslag nodig zijn.</td>
+        </tr>
+        <tr>
+          <td>DECIMAL(&lt;aantal&gt;, &lt;aantal&gt;) FLOAT(&lt;aantal&gt;) REAL</td>
+          <td>Een getal met cijfers achter de komma wordt aangeduid met DECIMAL,
+            FLOAT of REAL.<br>Bij DECIMAL kun je het totaal aantal cijfers opgeven
+            en het aantal cijfers achter de komma. DECIMAL(8,2) staat voor getallen
+            van 8 bits waarvan 2 achter de komma.<br>FLOAT en REAL hebben een
+            drijvende komma, bij FLOAT kun je het aantal cijfers opgeven. Het
+            verschil tussen DECIMAL en FLOAT/REAL zit in de manier van interne
+            opslag en daardoor is de nauwkeurigheid bij heel grote of heel kleine
+            getallen anders.</td>
+        </tr>
+        <tr>
+          <td>DATE  TIME</td>
+          <td>Een datum is van het datatype DATE. Feitelijk wordt ook hier een
+            getal opgeslagen, maar op een speciale manier. Het aantal dagen sinds
+            een begindatum, vaak is dat 31 december 1899, wordt uitgerekend.<br>
+            TIME gebruik je voor het weergeven van tijdstippen.</td>
+        </tr>
+        <tr>
+          <td>ENUM(&lt;opties&gt;)</td>
+          <td>ENUM gebruik je voor een keuzelijst. Hiermee kun je bijvoorbeeld
+            ervoor zorgen dat alleen uit een aantal opties. De opties schrijf je t
+            ussen enkele quotatie tekent. Let hierbij ook op dat het niet de ronde
+            quotaties teken is. Je scheidt de opties met een komma.
+            Dus bijvoorbeeld:<br>ENUM('A', 'B')</td>
+        </tr>
+      </tbody>
+      </table>
+      <p>
+        Als je voor alle kolommen het juiste datatype hebt gekozen kun je beginnen
+        met de query maken. Hieronder staat hoe deze queries opgebouwd moeten worden.
+        De optie voor <span class="begrip"> auto_increment</span> betekent dat wanneer
+        je een nummer of <span class="begrip">index</span>
+        hebt zoals bijvoorbeeld je leerling nummer, dat je niet zelf een nummer
+        hoeft te bedenken. SQL zal zelf voor jou het volgende nummer kiezen. De auto
+        increment voeg je alleen toe aan de primaire sleutel als dit een ID is,
+        het ID is daarbij altijd een getal. Je doet het dus wel bij AbonneeID maar
+        niet bij Tijdschrifttitel.
+        <br>
+        De opbouw is als volgt: 
+      </p>
+      <pre class=""><code>
+  CREATE TABLE &lt;tabelnaam> (
+       &lt;kolomnaam> &lt;datatype> &lt;not null> &lt;auto_increment>,
+       &lt;kolomnaam> &lt;datatype> &lt;not null>,
+       PRIMARY KEY (&lt;kolomnaam>),
+       FOREIGN KEY (&lt;kolomnaam>)
+         REFERENCES &lt;tabelnaam>(&lt;kolomnaam>)
+         ON DELETE CASCADE ON UPDATE CASCADE
+  )
+      </code></pre>
+      <pre class=""><code>
+  CREATE TABLE Abonnementen (
+       AbonneeID smallint NOT NULL,
+       Tijdschrifttitel varchar(50) NOT NULL,
+       Ingangsdatum date NOT NULL,
+       PRIMARY KEY (AbonneeID, Tijdschrijftitel),
+       FOREIGN KEY (AbonneeID) REFERENCES Abonnees(AbonneeID)
+       ON DELETE CASCADE ON UPDATE CASCADE,
+       FOREIGN KEY (Tijdschrifttitel)
+        REFERENCES Tijdschriften(Tijdschrifttitel)
+        ON DELETE CASCADE ON UPDATE CASCADE
+  ) 
+      </code></pre>
+      <p>
+        <b>Let op!</b>
+        <ol>
+          <li> Als je een referentie sleutel hebt, dan moet je eerst de referentie
+            tabel maken. In het voorbeeld moet dus de tabel voor abonnees en
+            tijdschriften maken voor je de abonnementen kan maken.</li>
+          <li> AbonneeID wordt niet opnieuw berekent in deze tabel, hierdoor komt
+            er geen auto increment achter. De ID’s zijn gemaakt in de Abonnees tabel,
+            hier gebruik je ze. </li>
+        </ol>
+      </p>
+      <p>
+        Bij de referentiesleutels zie je dat er on delete en on update cascade
+        staat. Deze opties zijn optionee, maar wel erg handig. Als je dit er
+        altijd netjes bij zet, dan betekent dit dat je de regels altijd kan
+        verwijderen omdat het automatisch ook de waarde die erbij horen
+        verwijdert or update. Als je deze niet toevoegt dan kun je een foutmelding krijgen.
+      </p>
+      <p>
+        Als het fout is gegaan kan je de tabel verwijderen door de volgende query te gebruiken
+        <code> DROP TABLE &lt;tabelnaam> </code>
+        <br>
+        <b>Let op!</b> Dit kan alleen als je niet naar deze tabel verwijst met een FOREIGN KEY.
+      </p>
 
+      <p> Een database maken in PHPMyAdmin is gaat erg snel als je weet hoe je queries moet maken.</p>
+      <ol>
+        <li><b>Database bedenken</b></li>
+        <ul>
+          <li>Maak een strokendiagram met alle kolommen, tabellen, en sleutels
+            zoals in hoofdstuk 3 is behandeld.</li>
+        </ul>
+        <li><b>Database maken</b></li>
+        <ul>
+          <li>Je begint eerst met een nieuwe databank maken. Deze databank is nu
+            de database waarin je tabellen gaat maken en gegevens gaat opslaan.
+            Dit doe je als volgt:</li>
+          <ul>
+            <!-- TODO: update to make it a query -->
+            <li>Log in op PHPMyAdmin</li>
+            <li>Klik op Databanken boven in naast SQL.</li>
+            <li>Geef een naam aan je Database en vul deze in bij Databank aanmaken.
+              Klik daarna op Aanmaken.</li>
+          </ul>
+        </ul>
+        <li><b>Maak de basis</b></li>
+        <ul>
+          <li>Zet de strokendiagram om naar queries. Deze vul je in bij de SQL tab
+            net zoals je gewend bent voor het uitvoeren van select queries.
+            Zorg ervoor dat je jouw database eerst hebt geselecteerd door op de
+            naam te klikken aan de linker kant.</li>
+        </ul>
+        <li><b>Vul de database</b></li>
+        <ul>
+          <li>Vul de database met inhoud, dit leer je in het volgende stuk over
+            <a href="beheren.html"> informatie beheren</a>.</li>
+        </ul>
+        <li><b>Importeer je database</b></li>
+      </ol>
+
+      <div class="assignment">
+        <h4> Opdracht 19</h4>
+        Maak een database genaamd Bibliotheek, als je dat gedaan hebt,
+        maak je voor alle tabellen die je hebt gemaakt in de strokendiagram een tabel.
+        Gebruik hiervoor de Create Query zoals hierboven uitgelegd. Vergeet niet
+        dat de volgorde van belang is.
+        Zorg ervoor dat je eerst alle tabellen toevoegt die geen FOREIGN KEY hebben.
       </div>
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="invoegen.html"> Volgende </a> </span>
+      <span class="right button"><a href="beheren.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

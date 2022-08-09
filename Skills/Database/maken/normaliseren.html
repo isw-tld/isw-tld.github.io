@@ -16,13 +16,62 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> .... </h2>
+      <h2> Normaliseren </h2>
       <p>
-
+        De laatste stap voor het maken van de database is het kijken of je de
+        tabellen kleiner kunnen. Om ervoor te zorgen dat je nooit te veel
+        informatie tegelijk hebt, kun je de gegevens <span class="begrip">normaliseren</span>. We leren nu
+        de vier vormen van normaliseren, beginnen bij 0NV. Dit staat voor de
+        <span class="begrip">nulde normaalvorm</span>.
       </p>
-      <div class="assignment">
-        <h4> Opdracht </h4>
+      <h3>0NV</h3>
+      <p>
+        Deze vorm kom je hopelijk niet zo snel tegen, dit betekent namelijk dat
+        alle gegevens die je hebt gewoon in een tabel zijn gegooid zonder
+        verdere bedenking van hoe dit het beste weergegeven kan worden zie
+        bijvoorbeeld het volgende strokendiagram:
+      </p>
+      <img src="../foto/strokendiagram_0NV.png" alt="Strokendiagram in 0NV" width="95%">
 
+      <h3>1NV</h3>
+      <p>
+        De <span class="begrip">eerste normaalvorm</span> ziet er dan ook al weer een stukje beter uit. In
+        deze vorm <b>haal je alle gegevens die herhaalt worden weg</b> en zet je in een
+        nieuwe tabel waarmee je verwijst met een referentiesleutel. In
+        het voorbeeld van 0NV wordt alle Tijdschrift informatie en alle gegevens
+        informatie herhaalt. Stel je bijvoorbeeld voor dat je twee verschillende
+        tijdschriften bestelt, dan staan jouw gegevens twee keer in de tabel.
+        In de eerste normaal vorm haal je daarom al jouw persoonsgegevens uit de
+        abonnementen tabel, en zet je in een eigen abonnees tabel.
+      </p>
+      <img src="../foto/strokendiagram_1NV.png" alt="Strokendiagram in 1NV" width="95%">
+
+      <h3>2NV</h3>
+      <p>
+        De <span class="begrip">tweede normaalvorm</span> gaat over het <b>afsplitsen van labeltypes in de
+        sleutels</b>. Dit zijn stukken informatie die afhankelijk zijn van een deel
+        van een gedeelde sleutel. In 1NV zag je dat het tijdschrift een uitgever
+        en een prijs heeft. Deze informatie verandert niet, maar is wel deel van
+        het tijdschrift. Je kunt dus een aparte tabel maken met daarin de titel,
+        uitgever en prijs zodat je deze kan opzoeken wanneer het nodig is.
+      </p>
+      <img src="../foto/strokendiagram_2NV.png" alt="Strokendiagram in 2NV" width="95%">
+
+      <h3>3NV</h3>
+      <p>
+        In de <span class="begrip">derde normaalvorm</span> splits je ook <b>labeltypes af die <u>geen</u> onderdeel
+        zijn van een sleutel</b>. Dit is bijvoorbeeld de postcode. De postcode is
+        altijd het zelfde voor een straat en plaats, het enige wat je dan nog
+        nodig hebt is het huisnummer. Hiermee elimineer je weer een stukje
+        gegevens die herhaalt worden in een tabel. Je kijkt naar gegevens die
+        afhankelijk zijn van elkaar.
+      </p>
+      <img src="../foto/strokendiagram_3NV.png" alt="Strokendiagram in 3NV" width="95%">
+
+      <div class="assignment">
+        <h4> Opdracht 18</h4>
+        Normaliseer jouw database, zorg ervoor dat jouw database op zijn minst in de tweede normaal vorm staat.
+        Zorg dat je de stappen goed beargumenteerd.
       </div>
       <button onclick="history.back()">Terug</button>
       <span class="right button"><a href="tabellen.html"> Volgende </a> </span>

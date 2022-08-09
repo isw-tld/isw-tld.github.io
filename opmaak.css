@@ -33,7 +33,7 @@ rgb(132, 220, 34) - Groen
   --main-t6: rgb(172, 209, 242);
   --main-t8: rgb(200, 224, 246);
   --main-t10: rgb(227, 240, 251);
-  
+
   --accent1: rgb(220, 34, 132);
   --accent1-s2: rgba(220, 34, 132, 0.8);
   --accent1-s10: rgba(220, 34, 132, 0.1);
@@ -171,6 +171,10 @@ h1 {
   text-align: center;
 }
 
+p + p {
+  margin-top: 15px;
+}
+
 p {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -306,6 +310,16 @@ table, td{
   /* margin: 3px; */
   padding-left: 5px;
   padding-right: 5px;
+}
+
+td + td {
+  border-top: 1px solid var(--accent1);
+  border-collapse: collapse;
+}
+
+td.not {
+  border-top: initial;
+  border-collapse: initial;
 }
 
 .query {

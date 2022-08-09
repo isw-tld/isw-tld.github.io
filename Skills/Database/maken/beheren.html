@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> .... </title>
+    <link rel="stylesheet" href="../../../opmaak.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
+
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../../../index.html">Home</a></li>
+        <li><a href="../skills.html">Website maken</a></li>
+        <li><a class="active" href="../../Database/skills.html">Databases</a></li>
+      </ul>
+    </nav>
+    <div class="content basis">
+      <h2> Gegevens beheren </h2>
+
+      <p>
+        Nu er een plan ligt voor de database en de tabellen klaar staan, kunnen
+        we gaan beginnen met gegevens verwerken. Bij gegevens is het vaak van
+        belang dat er vier type operaties gedaan kunnen worden, dit heten de CRUD
+        operaties dit staat voor Create, Read, Update en Delete. Read hebben we
+        natuurlijk al gezien met de select queries, en create hebben we bij het
+        maken van de tabellen gezien. Hier gaan we nu leren invoegen, wijzigen en verwijderen
+        van gegevens.
+      </p>
+      <h3>Toevoegen</h3>
+      <p>
+        Om gegevens te hebben in de database heb je wel gegevens nodig.
+        De eerste stap als je een nieuwe database hebt is om de tabellen te vullen met data.
+        Dit kan je doen met een query:
+      </p>
+      <pre><code>
+  INSERT INTO &lt;tabel> (&lt;kolommen>) VALUES (&lt;waardes per kolom>)
+      </code></pre>
+      <pre><code>
+  INSERT INTO Tijdschriften VALUES
+  ('Flammen', 'Toonder', 5.12),
+  ('Druppels', 'Toonder', 4.23),
+  ('Broeders', 'Nortwick', 5.39)
+      </code></pre>
+      <p>
+        <b>De kolommen opschrijven is optioneel, zoals je ziet in het voorbeeld hierboven.
+        Als je dit niet doet dan betekent het dus dat je alle kolommen gaat invullen</b>,
+        en moet je dus ook een waarde voor alle kolommen geven.
+        Als je bijvoorbeeld dan een tussenvoegsel wilt maken die leeg is gebruik je of twee quotes die je niet vult (''),
+        of je gebruikt NULL als waarde. <b>NULL kan alleen als de waarde in de kolom ook daadwerkelijk NULL mag zijn</b>.
+      </p>
+      <div class="assignment">
+        <h4> Opdracht 20</h4>
+        Voeg minstens 5 boeken toe aan jouw database. Zorg ervoor dat 2 mensen zijn om de boeken te lenen,
+        als laatst, zorg ervoor dat er 2 boeken uitgeleend zijn.
+      </div>
+      <h3>Wijzigen</h3>
+      <p>
+        Voor gegevens wijzigen gebruiken we een UPDATE query.
+        De UPDATE query heeft de volgende opbouw:
+      </p>
+      <pre><code>
+  UPDATE &lt;tabel>
+  SET &lt;kolom> = &lt;waarde>
+  WHERE &lt;kolom> = &lt;waarde>
+      </code></pre>
+      <p>
+        Je kan verschillende dingen tegelijk updaten als je bij SET een komma
+        gebruikt en daarna meer kolommen veranderd. De WHERE werkt hetzelfde als bij een gewone query.
+      </p>
+      <pre><code>
+  UPDATE abonnees
+  SET huisnummer = 234,
+   Postcode = '2545JK'
+  WHERE abonneeID = 12
+      </code></pre>
+      <div class="assignment">
+        <h4> Opdracht 21</h4>
+        Verander het adres van een van de gebruikers.
+      </div>
+      <h3>Verwijderen</h3>
+      <p>
+        Als gegevens dan oud zijn, of een persoon beroept zich op het recht om vergeten te worden,
+        dan heb je de DELETE query nodig. De DELETE query is als volgt opgebouwd:
+      </p>
+      <pre><code>
+  DELETE FROM &lt;tabel>
+  WHERE &lt;kolom> = &lt;waarde>
+      </code></pre>
+      <pre><code>
+  DELETE FROM abonnees
+  WHERE abonneeID = 12
+      </code></pre>
+      <p>Ook hier werkt WHERE weer zoals je gewend bent.</p>
+      <div class="assignment">
+        <h4> Opdracht 22</h4>
+        Verwijder uit elke tabel 1 rij.
+      </div>
+      <button onclick="history.back()">Terug</button>
+      <span class="right button"><a href="../skills.html"> Volgende </a> </span>
+    </div>
+  </body>
+</html>

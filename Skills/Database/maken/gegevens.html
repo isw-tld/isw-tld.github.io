@@ -16,13 +16,157 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> .... </h2>
+      <h2> Gegevens verzamelen</h2>
       <p>
-
+        Bij het maken van een database is het verstandig om eerst uit te denken wat we gaan doen.
+        Als we dit niet doen dan komt het voor dat je de database verkeerd maakt, en misschien wel helemaal opnieuw moet beginnen!
+      </p>
+      <p>
+        We beginnen met het bedenk welke gegevens er allemaal nodig zijn voor de database,
+        wat wil je weten, wat heb je nodig, wat ga je er mee doen.
+        Let hierbij ook op wat nuttig is. Je kunt best alles opslaan,
+        maar dan heb je een hele grote database nodig. Ook moet je denken aan de privacy van de mensen,
+        waarom heb je bijvoorbeeld het adres van een persoon nodig.
+      </p>
+      <p>
+        In Nederland moet je voldoen aan de <span class="begrip">Algemene verordening gegevensbescherming (AVG)</span>.
+        Dit geld voor de hele Europese Unie. De AVG is ingevoerd in 2016,
+        bedrijven moeten sinds 2018 zich er aanhouden. De AVG heeft een basis waarbij
+        in het ontwerp privacy in acht genomen moet worden. Daarnaast moet een bedrijf een
+        inventarisatie maken over wat de gevolgen zijn als er iets misgaat. Dit wordt dan ook opgenomen in de algemene voorwaarde.
+        Iedereen heeft recht om controle te hebben over de eigen data. Hiervoor zijn de volgende rechten:
+        inzien van data, wijzigen van data, vergeten van data, overdragen van data, informatie op de data.
+      </p>
+      <p>
+        Je mag alleen gegevens verzamelen als je aan deze voorwaardes voldoet:
+        <ul>
+          <li>Je hebt toestemming nodig van de persoon.</li>
+          <li>De gegevens zijn nodig voor het uitvoeren van een overeenkomst (bijvoorbeeld je naam).</li>
+          <li>De gegevens zijn nodig omdat deze wettelijk verplicht zijn (bijvoorbeeld wanneer de politie jouw ID
+          vraagt).</li>
+          <li>De gegevens zijn nodig omdat het een levensbelangrijke situatie is (bijvoorbeeld als er een ramp ge-
+          beurt).</li>
+          <li>De gegevens zijn nodig voor algemene of openbare veiligheid (bijvoorbeeld de camera’s op school).</li>
+          <li>De gegevens zijn nodig om de persoon te beschermen (bijvoorbeeld om hack aanvallen tegen te gaan).</li>
+        </ul>
+      </p>
+      <p>
+        Sta in deze fase ook stil bij hoe je de gegevens wilt weergeven.
+        Bijvoorbeeld, je kunt Naam als een kolom maken, maar dan kun je dus niet
+        los zoeken op voornaam of achternaam. Het zelfde geld voor het adres.
       </p>
       <div class="assignment">
-        <h4> Opdracht </h4>
+        <h4> Opdracht 15</h4>
+        Bedenk de gegevens die je nodig hebt om een online bibliotheek te maken.
+        De boeken die verhuurt worden worden via de post naar je huis gestuurd.
+        Ook kun je e-boeken lenen, deze worden via het e-mail adres gekoppeld.
+        Je moet kunnen inloggen in het systeem en informatie opvragen over de boeken.
+      </div>
 
+      <h2> Benodigde Tabellen </h2>
+      <p>
+        Zoals je weet heeft een database altijd tabellen en kolommen en is er een
+        relatie tussen de verschillende tabellen en kolommen. We gaan nu behandelen hoe die verbanden werken.
+      </p>
+      <h3>Sleutels</h3>
+      <p>
+        Om ervoor te zorgen dat elke waarde in een tabel gevonden kan worden geef
+        je voor een tabel een sleutel aan. De <span class="begrip">primaire sleutel (primary key) </span> is
+        de manier om één specifieke waarde te vinden in een tabel. De sleutel
+        bestaat altijd uit 1 of meerdere kolommen in de tabel. Deze sleutel moet
+        ook aan een aantal eisen voldoen:
+        <ul><b>
+          <li>In elke rij moet er een waarde zijn voor de primaire sleutel.</li>
+          <li>De waardes die voorkomen in de sleutel zijn allemaal uniek.</li>
+        </b></ul>
+        Een voorbeeld voor een primaire sleutel is bijvoorbeeld je leerling-nummer.
+        Ook hier kun je zien dat de twee eisen gelden. Elke leerling heeft een
+        leerling-nummer en iedereen heeft een ander leerling nummer. Als we
+        meerdere kolommen gebruiken om een primaire sleutel te maken, bijvoorbeeld
+        als je in een bibliotheek kijkt, dan hebben ze soms meerdere van dezelfde
+        boeken. Hierbij heb je een boeknummer en een exemplaar nummer. Het
+        boeknummer is gelijk voor deze boeken, maar de combinatie met het exemplaarnummer is uniek.
+      </p>
+      <p>
+        Als er verschillende manieren zijn om een primaire sleutel te maken, dan
+        kies je één sleutel als primaire sleutel, de ongekozen combinaties heten
+        dan <span class="begrip"> kandidaat sleutels (candidate keys)</span>.
+        <b> Deze kun je ook gebruiken om
+        unieke waardes aan te geven. </b>
+      </p>
+      <p>
+        Zoals je weet wordt jouw leerling nummer op allerlei plekken gebruikt op school.
+        Als het leerling nummer gebruikt wordt in een andere tabel, dan is de kolom
+        een <span class="begrip">referentie sleutel (foreign key)</span>. Deze sleutel refereert (verwijst)
+        naar een andere (foreign) tabel. <b> Een referentiesleutel verwijst meestal
+        naar de primaire sleutel van een ander tabel</b>. Er zijn enkele uitzonderingen,
+        maar deze kom je niet snel tegen. Met behulp van referentiesleutels kun
+        je <b>controleren of informatie wel klopt</b>. Je kan namelijk niet inloggen
+        met een leerling nummer die niet bestaat. We kunnen alleen niet controleren
+        of jij wel degene bent die inlogt. Het controleren van de verwijzingen
+        noemen we het bewaken van de <span class="begrip">referentiële integriteit</span>.
+      </p>
+
+      <div class="assignment">
+        <h4> Opdracht 16</h4>
+        <ol class="abc">
+          <li>Verdeel de gegevens van opdracht 14 in tabellen. Breid de gegevens uit met gemiste punten.</li>
+          <li>Bedenk een naam voor de tabellen die je hebt gemaakt.</li>
+          <li>Bedenk wat de primaire sleutel en de referentiesleutels zijn voor jouw tabellen.</li>
+        </ol>
+      </div>
+      <h3>Voorwaarde bepalen</h3>
+      <p>
+        De waardes die in de tabellen staan kunnen verschillen van letters,
+        tot cijfers, tot data of zelfs een boolean. Om ervoor te zorgen dat de
+        informatie goed in de database komt kun je eisen stellen aan de data.
+        Bijvoorbeeld: je kan zeggen dat een postcode bestaat uit 6 tekens. Je
+        weet dan zeker dat er geen postcode komt die lijkt op ‘29140JL’.
+        Er zijn drie soorten regels:
+        <ol>
+          <li><b>Verplicht iets moeten invullen</b>. Als er niets is ingevuld
+            dan kan je de informatie niet toevoegen. Deze
+          regel heet de niet-leeg-regel (not-null). Dit verschil kun je merken
+          bij een achternaam met en een achternaam zonder tussenvoegsel. De
+          achternaam zelf is verplicht, maar niet iedereen heeft een tussenvoegsel.</li>
+          <li>Verplicht een <b>soort informatie</b>. Bijvoorbeeld alleen maar
+            cijfers of een datum.</li>
+          <li> Het is ook mogelijk om specifiek te zeggen dat er alleen
+            <b>voorbestemde waardes</b> ingevuld mogen worden. Een voorbeeld
+            hiervan is bijvoorbeeld het niveau dat je doet op school. Je kunt alleen kiezen
+          uit de bestaande opties, je mag niet opeens het nieuwe niveau bedenken zoals MVO.</li>
+        </ol>
+      </p>
+      <h3>Strokendiagram</h3>
+      <img src="../foto/strokendiagram_2NV.png" alt="Voorbeeld van een strokendiagram" width="95%">
+      <p>
+        Strokendiagram
+        Voor je zelf een database kan maken, moet je ervoor zorgen dat je een
+        overzicht hebt van de database. Hiermee kun je controleren of je de
+        database wel goed bedacht heb en of je misschien nog iets mist. Je
+        gebruikt hiervoor een <span class="begrip">strokendiagram</span>. Een
+        voorbeeld van een strokendiagram zie je hieronder. Daarna vertellen we
+        hoe je dit diagram maakt, en daarmee ook wat alles betekent.
+        <b>Het strokendiagram maak je op de volgende manier</b>:
+        <ol>
+          <li>Maak een rij van hokjes met alle kolommen per tabel. De titel van
+            de tabel staat erboven.</li>
+          <li>Geef de primaire sleutel aan met een dubbele pijl onder de
+            kolommen die de primaire sleutel zijn. Zorg ervoor dat de primaire
+            sleutel zo veel mogelijk vooraan staat.</li>
+          <li>Schrijf NL bij alle kolommen die niet leeg mogen zijn. Dit zet je
+            rechtsonder in het vakje. Bij de primaire sleutel laat je NL weg.</li>
+          <li>Daarna geef je een referentiesleutel aan door een pijl te zetten
+            tussen de twee kolommen uit twee tabellen die gelijke data hebben.
+            De kop van de pijl wijst naar waar de gegevens vandaan komen.</li>
+        </ol>
+        Normaal gesproken kun je per primaire sleutel, oneindig veel referenties
+        maken. Bijvoorbeeld, je kan (met jouw klanten-nummer) zo veel boeken
+        lenen als je wilt. Dit heet een één-op-veel relatie.
+      </p>
+      <div class="assignment">
+        <h4> Opdracht 17</h4>
+        Maak een strokendiagram voor de antwoorden die je gegeven heb in opdracht 15 en 16.
       </div>
       <button onclick="history.back()">Terug</button>
       <span class="right button"><a href="normaliseren.html"> Volgende </a> </span>

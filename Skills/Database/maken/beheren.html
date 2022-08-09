@@ -23,7 +23,7 @@
         we gaan beginnen met gegevens verwerken. Bij gegevens is het vaak van
         belang dat er vier type operaties gedaan kunnen worden, dit heten de CRUD
         operaties dit staat voor Create, Read, Update en Delete. Read hebben we
-        natuurlijk al gezien met de select queries, en create hebben we bij het
+        natuurlijk al gezien met de select query's, en create hebben we bij het
         maken van de tabellen gezien. Hier gaan we nu leren invoegen, wijzigen en verwijderen
         van gegevens.
       </p>
@@ -48,6 +48,12 @@
         en moet je dus ook een waarde voor alle kolommen geven.
         Als je bijvoorbeeld dan een tussenvoegsel wilt maken die leeg is gebruik je of twee quotes die je niet vult (''),
         of je gebruikt NULL als waarde. <b>NULL kan alleen als de waarde in de kolom ook daadwerkelijk NULL mag zijn</b>.
+      </p>
+      <p>
+        Hierboven heb je de basis gelezen, maar ik raad je persoonlijk aan om het een tikje aan te passen.
+        als je <code> INSERT IGNORE INTO &lt;tabel> (&lt;kolommen>) VALUES (&lt;waardes per kolom>) </code>
+        gebruikt, dan geeft je database minder vaak errors als je later dingen toevoegt. De scheelt veel
+        hoofdpijn...
       </p>
       <div class="assignment">
         <h4> Opdracht 20</h4>

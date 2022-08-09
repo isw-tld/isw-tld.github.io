@@ -20,7 +20,7 @@
       <p>
         Het maken van een database lijkt op het opzoeken van data. Ook hiervoor
         kun je een query gebruiken. Het belangrijkste is dat je eerst een
-        strokendiagram hebt zoals verteld in hoofdstuk 3. Daarna bedenk je wat
+        strokendiagram hebt zoals verteld in <a href="gegevens.html" target="_blank">gegevens verzamelen</a>. Daarna bedenk je wat
         het <span class="begrip">datatype</span> is van de gegevens die je verwerkt, welk soort de data is.
         Dan zijn we klaar om de query te maken.
       </p>
@@ -78,7 +78,7 @@
       </table>
       <p>
         Als je voor alle kolommen het juiste datatype hebt gekozen kun je beginnen
-        met de query maken. Hieronder staat hoe deze queries opgebouwd moeten worden.
+        met de query maken. Hieronder staat hoe deze query's opgebouwd moeten worden.
         De optie voor <span class="begrip"> auto_increment</span> betekent dat wanneer
         je een nummer of <span class="begrip">index</span>
         hebt zoals bijvoorbeeld je leerling nummer, dat je niet zelf een nummer
@@ -105,8 +105,9 @@
        Tijdschrifttitel varchar(50) NOT NULL,
        Ingangsdatum date NOT NULL,
        PRIMARY KEY (AbonneeID, Tijdschrijftitel),
-       FOREIGN KEY (AbonneeID) REFERENCES Abonnees(AbonneeID)
-       ON DELETE CASCADE ON UPDATE CASCADE,
+       FOREIGN KEY (AbonneeID)
+        REFERENCES Abonnees(AbonneeID)
+        ON DELETE CASCADE ON UPDATE CASCADE,
        FOREIGN KEY (Tijdschrifttitel)
         REFERENCES Tijdschriften(Tijdschrifttitel)
         ON DELETE CASCADE ON UPDATE CASCADE
@@ -125,7 +126,7 @@
       </p>
       <p>
         Bij de referentiesleutels zie je dat er on delete en on update cascade
-        staat. Deze opties zijn optionee, maar wel erg handig. Als je dit er
+        staat. Deze opties zijn optioneel, maar wel erg handig. Als je dit er
         altijd netjes bij zet, dan betekent dit dat je de regels altijd kan
         verwijderen omdat het automatisch ook de waarde die erbij horen
         verwijdert or update. Als je deze niet toevoegt dan kun je een foutmelding krijgen.
@@ -137,12 +138,11 @@
         <b>Let op!</b> Dit kan alleen als je niet naar deze tabel verwijst met een FOREIGN KEY.
       </p>
 
-      <p> Een database maken in PHPMyAdmin is gaat erg snel als je weet hoe je queries moet maken.</p>
+      <p> Een database maken in PHPMyAdmin is gaat erg snel als je weet hoe je query's moet maken.</p>
       <ol>
         <li><b>Database bedenken</b></li>
         <ul>
-          <li>Maak een strokendiagram met alle kolommen, tabellen, en sleutels
-            zoals in hoofdstuk 3 is behandeld.</li>
+          <li>Maak een strokendiagram met alle kolommen, tabellen, en sleutels.</li>
         </ul>
         <li><b>Database maken</b></li>
         <ul>
@@ -151,18 +151,15 @@
             Dit doe je als volgt:</li>
           <ul>
             <!-- TODO: update to make it a query -->
-            <li>Log in op PHPMyAdmin</li>
-            <li>Klik op Databanken boven in naast SQL.</li>
-            <li>Geef een naam aan je Database en vul deze in bij Databank aanmaken.
-              Klik daarna op Aanmaken.</li>
+            <li>Bovenin het SQL bestand schrijf je <code> CREATE DATABASE IF NOT EXISTS &lt;naam>;</code>.</li>
+            <li>Op de regel er onder schrijf je <code> USE &lt;naam></code>.</li>
+            <li>Ga nu verder met de andere query's onder deze twee regels.</li>
           </ul>
         </ul>
-        <li><b>Maak de basis</b></li>
+        <li><b>Maak de tabellen</b></li>
         <ul>
-          <li>Zet de strokendiagram om naar queries. Deze vul je in bij de SQL tab
-            net zoals je gewend bent voor het uitvoeren van select queries.
-            Zorg ervoor dat je jouw database eerst hebt geselecteerd door op de
-            naam te klikken aan de linker kant.</li>
+          <li>Zet de strokendiagram om naar query's. Deze zet je allemaal in het SQL bestand.
+          <b>Let op!</b> de volgorde maakt uit.</li>
         </ul>
         <li><b>Vul de database</b></li>
         <ul>
@@ -170,6 +167,11 @@
             <a href="beheren.html"> informatie beheren</a>.</li>
         </ul>
         <li><b>Importeer je database</b></li>
+        <ul>
+          <li>Importeer nu de database via de importeer knop in PHPMyAdmin. Het kan zijn dat je een foutje hebt
+          gemaakt, dan geeft hij dit aan. Je kunt ook altijd een SQL checker gebruiken
+          zoals bijvoorbeeld <a href="https://extendsclass.com/sql-validator.html" target="_blank">deze</a>.</li>
+        </ul>
       </ol>
 
       <div class="assignment">

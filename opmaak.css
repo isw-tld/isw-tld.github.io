@@ -376,3 +376,7 @@ article {
   float: none;
   overflow: hidden;
 }
+
+* + pre {
+  margin-bottom: 5px;
+}

@@ -31,14 +31,14 @@
       <pre><code class="language-php">
 &lt;table>
   &lt;tr>
-    &lt;th>Artikel nummer&lt;/th>
-    &lt;th>Omschrijving&lt;/th>
-    &lt;th>Categorie&lt;/th>
-    &lt;th>Prijs&lt;/th>
+    &lt;th>BloemID&lt;/th>
+    &lt;th>Soort&lt;/th>
+    &lt;th>Kleur&lt;/th>
+    &lt;th>Aantal&lt;/th>
   &lt;/tr>
 &lt;?php
-  while(list($artikelnr,$omschrijving,$categorie,$prijs) = mysqli_fetch_row($resultaat)) {
-    echo "&lt;tr> &lt;td>$artikelnr&lt;/td> &lt;td>$omschrijving&lt;/td> &lt;td>$categorie&lt;/td> &lt;td>$prijs&lt;/td> &lt;/tr>"
+  while(list($id,$soort,$kleur,$aantal) = mysqli_fetch_row($resultaat)) {
+    echo "&lt;tr> &lt;td>$id&lt;/td> &lt;td>$soort&lt;/td> &lt;td>$kleur&lt;/td> &lt;td>$aantal&lt;/td> &lt;/tr>"
   }
 ?>
 &lt;/table> </code></pre>

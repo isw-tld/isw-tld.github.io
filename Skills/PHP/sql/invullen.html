@@ -25,45 +25,99 @@
         <a target="_blank" href="https://moodle.informatica-actief.nl/mod/page/view.php?id=48394">deze link</a>
       </p>
       <p>
-        In de voorbeelden hebben we de artikelen terug gegeven uit alle categorieën,
-        maar soms wil je een filter gebruiken om alleen de artikelen van een bepaalde categorie te laten zien.
-        Om ervoor te zorgen dat de website wat slimmer wordt gaan we ervoor zorgen dat je op de categorie kan invullen die we dan gebruiken in de query.
+        In de voorbeelden hebben we de bloemen terug gegeven uit alle soorten,
+        maar soms wil je een filter gebruiken om alleen de bloemen van een
+        bepaalde soort te laten zien. Om ervoor te zorgen dat de website wat
+        slimmer wordt gaan we ervoor zorgen dat je op de soort kan invullen
+        die we dan gebruiken in de query.
         Dit kan op twee manieren:
         <ol>
-          <li>De gebruiker moet zelf een categorie invullen, het kan dan voorkomen dat de categorie niet bestaat of niet goed geschreven is.</li>
-          <li>De gebruiker kan kiezen tussen categorieën die bestaan in de database.</li>
+          <li>De gebruiker moet zelf een soort invullen, het kan dan voorkomen
+            dat de soort niet bestaat of niet goed geschreven is.</li>
+          <li>De gebruiker kan kiezen tussen soortën die bestaan in de database.</li>
         </ol>
         De eerste manier is het makkelijkste, deze gaan we als eerst uitproberen.
       </p>
       <h3>Zelf invullen</h3>
       <p>
-        Om de gebruiker zelf een stad te kunnen laten invullen heb je een formulier nodig op jouw website. Dit kan gewoon een simpel formulier zijn met 1 invul vak voor de stad. Zoals deze:
+        Om de gebruiker zelf een stad te kunnen laten invullen heb je een
+        formulier nodig op jouw website. Dit kan gewoon een simpel formulier
+        zijn met 1 invul vak voor de stad. Zoals deze:
         <pre><code class="language-html">
-&lt;form action="pagina.php" method="POST">
-  Welke categorie zoek je? &lt;input type="text" name="Categorie"> &lt;input type="submit" name="verzend">
-&lt;/form>
-        </code></pre>
+&lt;form action="" method="POST">
+  Welke soort zoek je? &lt;input type="text" name="Soort"> &lt;input type="submit" name="verzend">
+&lt;/form> </code></pre>
 
-        Vervolgens kun je met <code>$_POST["Catergorie"]</code> een variabele maken voor de categorie die ingevuld is. Deze
+        Vervolgens kun je met <code>$_POST["Catergorie"]</code> een variabele
+        maken voor de soort die ingevuld is. Deze
         variabele kun je daarna in jouw query gebruiken. Dit doe je als volgt:
       </p>
       <pre><code class="language-php">
-$categorie = mysqli_real_escape_string($mysql, $_POST["Catergorie"]);
-$resultaat = mysqli_query($mysql, "SELECT * FROM artikel ORDER BY $categorie") or die("De selectquery op de database is mislukt!");
-      </code></pre>
-      <!-- TODO: uitleg mysqli_real_escape_string -->
+$soort = mysqli_real_escape_string($mysql, $_POST["Catergorie"]);
+$resultaat = mysqli_query($mysql, "SELECT * FROM bloemen ORDER BY $soort") or die("Kon de bloemen niet krijgen!"); </code></pre>
+      <p>
+        Voor de veiligheid gebruiken we altijd als een persoon iets invult voor
+        de database de functie <code>mysqli_real_escape_string</code>. Als we dit niet
+        doen dan riskeren we een SQL-injection attack. Hiermee kan een gebruiker
+        jouw database hacken en bijvoorbeeld wachtwoorden achterhalen.
+      </p>
+
       <h3>Laten kiezen</h3>
       <p>
-        Om de categorieën te laten zien waar de gebruiker uit kan kiezen moeten we er eerst voor zorgen dat de gebruiker weet welke categorieën er zijn. Deze haal je weer uit de database.
+        Het is niet altijd handig om de gebruiker informatie te laten typen,
+        wat als ze het verkeerd spellen, of niet weten wat de keuzes zijn?
+        In zulke gevallen kun je beter een keuze lijst geven aan de gebruikers.
+        <br>
+        Om de soorten waaruit de gebruiker kan kiezen te laten zien, moeten
+        we eerst de soorten uit de database halen. We willen natuurlijk
+        niet dubbelen waardes hebben dus krijgen we een query zoals:
+        <code> SELECT DISTINCT soort FROM bloemen </code>
+        Vervolgens kunnen we de opties toevoegen aan bijvoorbeeld een dropdown
+        menu de code ziet er dan als volgt uit:
       </p>
-      <!-- TODO: extra inhoud
-        Eerst de categorien uit de database ophalen
-        Dan de categorien linken aan de query
-      -->
+      <pre><code class="language-php">
+&lt;?php
+  include "connect.php";
+  $mysql = mysqli_connect($server,$user,$pass,$db) or die("verbinden mislukt");
+  $opties = mysqli_query($mysql,"SELECT DISTINCT soort FROM bloemen") or die("Kon niet de soort krijgen!");
+  mysqli_close($mysql) or die("verbinding sluiten mislukt!");
+?>
+&lt;form action="" method="post">
+  Kies een soort: &lt;select name="Soort">
+    &lt;?php
+      while(list($soort) = mysqli_fetch_row($opties)) {
+        echo"&lt;option value='$soort'>$soort&lt;/option>";
+      }
+    ?>
+  &lt;/select>
+  &lt;input type="submit" name="verzend" value="Verzend"/>
+&lt;/form> </code></pre>
+      <p>
+        Hier zie je dat, net als met de tabel, we de gegevens omgeven met wat
+        HTML-code om de website interactief te maken.
+      </p>
+      <p>
+        Nu de gebruiker een soort kan kiezen, kunnen we de volgende query
+        maken op dezelfde manier als we eerder hebben gezien.
+      </p>
+      <pre><code class="language-php">
+&lt;?php
+  if(isset($_POST["verzend"])) {
+    $mysql = mysqli_connect($server,$user,$pass,$db) or die("Fout: Er is geen verbinding met de MySQL-server tot stand gebracht!");
+    $soort = mysqli_real_escape_string($mysql,$_POST["Soort"]);
+    $bloemen = mysqli_query($mysql,"SELECT * FROM bloemen WHERE soort = '$soort'") or die("De selectquery op de database is mislukt!");
+    mysqli_close($mysql) or die("Het verbreken van de verbinding met de MySQL-server is mislukt!");
+
+    while(list($id,$omschrijving,$soort,$prijs) = mysqli_fetch_row($bloemen)) {
+    	echo"$id $omschrijving $soort $prijs &lt;br>";
+  	}
+  }
+?></code></pre>
 
       <div class="assignment">
         <h4> Opdracht </h4>
-        Maak een zoekveld om een specifieke gebruiker te zoeken. Zorg voor een goede foutmelding als de gebruiker niet bestaat.
+        Maak een zoekveld om een specifieke gebruiker te zoeken. Zorg voor een
+        goede foutmelding als de gebruiker niet bestaat.
       </div>
       <button onclick="history.back()">Terug</button>
       <span class="right button"><a href="beheer.html"> Volgende </a> </span>

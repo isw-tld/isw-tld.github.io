@@ -2,9 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> ... </title>
+    <title> Gegevens beheren </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
+    <link href="../../../prism.css" rel="stylesheet" />
+    <script src="../../../prism.js"></script>
 
   </head>
   <body>
@@ -17,16 +19,87 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> ... </h2>
+      <h2> Gegevens beheren </h2>
       <p>
-        ...
-      </p>
-      <!-- <div class="assignment">
-        <h4> Opdracht </h4>
+        De theorie van informatica actief kun je eventueel nalezen voor
+        <a target="_blank" href="https://moodle.informatica-actief.nl/mod/page/view.php?id=48394">gegevens in een query zetten</a>,
+        <a target="_blank" href="https://moodle.informatica-actief.nl/mod/page/view.php?id=48458">voor wat ideeen</a>,
+        <a target="_blank" href="https://moodle.informatica-actief.nl/mod/page/view.php?id=48471">voorbeeld van de get variabele</a>,
+        <a target="_blank" href="https://moodle.informatica-actief.nl/mod/page/view.php?id=48516">verwijderen</a> en
+        <a target="_blank" href="https://moodle.informatica-actief.nl/mod/page/view.php?id=48879">wijzigen</a>.
 
-      </div> -->
+      </p>
+      <p>
+        Dan nu de laatste basis kennis voor het maken van de website. Je moet
+        natuurlijk voor een goede website in staat zijn om de database te bewerken.
+        We hebben drie queries voor het veranderen van de database: insert,
+        update en delete, zoals je ook al <a target="_blank" href="../../Database/maken/gegevens.html">hier</a> hebt gezien.
+        Nu moeten we deze query's gaan koppelen aan de gegevens die mensen eventueel invullen.
+      </p>
+      <p>
+        Als iemand gegevens wilt invoeren dan gebruiken we de insert query.
+        Hiervoor moet je eerste een formulier hebben die alle gegevens aanvraagt.
+        Stel je wilt een bloem toevoegen aan de database voor de bloemist dan heb
+        je de soort en de kleur van de bloem op zijn minst nodig. Het ID wordt
+        namelijk met AUTO_INCREMENT automatisch toegevoegd, en de hoeveelheid
+        kunnen we een standaard waarde voor bedenken zoals bijvoorbeeld 0 als we
+        zeggen dat er nog geen bloemen van zijn. Hiervoor gebruiken we dan de volgende code:
+      </p>
+        <pre><code class="language-php">
+    &lt;h1>Bloemen toevoegen&lt;/h1>
+    &lt;form action="" method="post">
+      &lt;label for="soort">Soort:&lt;/label>&lt;br>
+      &lt;input type="text" id="soort" name="soort">&lt;br>
+      &lt;label for="kleur">Kleur:&lt;/label>&lt;br>
+      &lt;input type="text" id="kleur" name="kleur">
+      &lt;input type="submit" value="Voeg toe">
+    &lt;/form>
+    &lt;?php
+      include "server.php";
+      if(isset($_POST["kleur"]) and isset($_POST["soort"])) {
+        $sql = mysqli_connect($server,$naam,$ww,$db) or die("verbinden mislukt");
+        $soort = mysqli_real_escape_string($sql, $_POST["soort"]);
+        $kleur = mysqli_real_escape_string($sql, $_POST["kleur"]);
+        $query = "insert into bloemen (soort, kleur, aantal) values ('$soort', '$kleur', 0)";
+        $result = mysqli_query($sql, $query) or die("Geen bloem toegevoegt");
+        mysqli_close($sql) or die("verbinden sluiten mislukt");
+        echo "De $soort is toegevoegt!";
+      } else {
+        echo "Vul alle gegevens in alstublieft.";
+      }
+    ?> </code></pre>
+        Hierbij gebeurt het volgende:
+        <ol>
+          <li>Gebruik een formulier zoals eerder alleen nu voor de soort en de kleur.</li>
+          <li>Kijk of de kleur en de soort ingevuld zijn, dan kunnen we verbinding maken met de server.</li>
+          <li>Haal de gegevens uit de POST, dit keer doe je dit met <code>mysqli_real_escape_string</code>.
+          <li>Daarna maken we de query voor het toevoegen van een gebruiker maken en deze voeren we uit met
+          <code>mysqli_query</code>.
+          <li>Dan sluiten we de database weer af.</li>
+          <li>Als de gegevens niet ingevuld waren, dan zeggen we dat ze alle gegevens moeten invullen.</li>
+        </ol>
+
+        Dit zelfde principe werkt ook voor het veranderen van gegevens.
+        Het enige wat hier anders is, is dat je dan ook een uniek gegeven van
+        een persoon moet weten, bijvoorbeeld: je vraagt om het oude e-mailadres
+        om het nieuwe e-mailadres te veranderen. Ook hier gebruik je natuurlijk
+        de <code>mysqli_real_escape_string</code> voor het opvragen van de ingevulde gegevens
+        van de persoon.
+      </p>
+      <p>
+        Het verwijderen gaat weer vergelijkbaar, echter hoeft een persoon daar
+        niet perse iets voor in te vullen. Als je bijvoorbeeld het account ID
+        opslaat in een sessie als iemand inlogt, dan kun je daarna gebruik maken
+        van dit account ID om de juiste persoon te verwijderen. De dingen die je
+        hiervoor nodig hebt zal je gaande weg tegenkomen. Als het goed is, heb
+        je dan genoeg kennis en ervaring om dit toe te passen.
+      </p>
+      <div class="assignment">
+        <h4> Opdracht </h4>
+        Maak een website om een persoon toe te voegen.
+      </div>
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="abc.html"> Volgende </a> </span>
+      <span class="right button"><a href="../skills.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

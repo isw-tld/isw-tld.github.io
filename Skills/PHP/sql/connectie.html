@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> ... </title>
+    <title> Connectie maken </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
-
+    <link href="../../../prism.css" rel="stylesheet" />
+    <script src="../../../prism.js"></script>
   </head>
   <body>
     <nav>
@@ -17,16 +18,47 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> ... </h2>
+      <h2> Connectie maken </h2>
       <p>
-        ...
+        De theorie van informatica actief kun je eventueel nalezen via
+        <a target="_blank" href="https://moodle.informatica-actief.nl/mod/page/view.php?id=48302">deze link</a>
       </p>
-      <!-- <div class="assignment">
-        <h4> Opdracht </h4>
+      <p>
+        Nu zijn we klaar om de database te verbinden met alle kennis die we tot
+        nu toe opgedaan hebben. Eerst moeten we verbinding maken met PHPMyAdmin.
+        Dit doe je door in een nieuw php bestand genaamd server.php de volgende
+        gegevens in te vullen
+        <pre><code class="language-php">
+&lt;?php
+  $db="naam van database";
+  $server="localhost";
+  $naam="root";
+  $ww="usbw";
+?>  </code></pre>
+        De enige die je daadwerkelijk moet vervangen is de naam van de database,
+        deze verander je naar de database die je gaat gebruiken, bijvoorbeeld de
+        bloemist database uit het de database theorie.
+      </p>
+      <p>
+        Vervolgens kun je de verbinding in jouw website verbinden door de
+        volgende code te gebruiken:
+        <pre><code class="language-php">
+&lt;?php
+  include "server.php";
+  $sql = mysqli_connect($server,$naam,$ww,$db) or die("verbinden mislukt");
+?>   </code></pre>
 
-      </div> -->
+        Nadat je deze code hebt toegevoegd kun je queries uit voeren op de database,
+        Tenzij je natuurlijk de melding verbinding mislukt krijgt. Als je deze
+        krijgt moet je even goed kijken of de naam van de database en de andere
+        gegevens goed zijn ingevuld. Weet je het echt niet meer, vraag dan altijd om hulp!
+      </p>
+      <div class="assignment">
+        <h4> Opdracht </h4>
+        Maak een verbinding tussen PHP en jouw eigen database
+      </div>
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="abc.html"> Volgende </a> </span>
+      <span class="right button"><a href="opvragen.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

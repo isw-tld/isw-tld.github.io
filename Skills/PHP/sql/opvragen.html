@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> ... </title>
+    <title> Query's uitvoeren </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
-
+    <link href="../../../prism.css" rel="stylesheet"/>
+    <script src="../../../prism.js"></script>
   </head>
   <body>
     <nav>
@@ -17,16 +18,45 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> ... </h2>
+      <h2> Query's uitvoeren </h2>
       <p>
-        ...
+        De theorie van informatica actief kun je eventueel nalezen via
+        <a target="_blank" href="https://moodle.informatica-actief.nl/mod/page/view.php?id=48303">deze link</a>
       </p>
-      <!-- <div class="assignment">
-        <h4> Opdracht </h4>
+      <p>
+        De eerste query die we gaan doen is met de database van de bloemist van
+        het vorige onderdeel. We doen een query om alle gegevens te laten zien
+        uit de tabel bloemen. Hiervoor gebruiken we natuurlijk de query:
+        "<code>SELECT * FROM bloemen</code>".
+        De volledige code ziet er dan zo uit:
+      </p>
 
-      </div> -->
+      <pre><code class="language-php">
+&lt;?php
+include "server.php";
+$sql = mysqli_connect($server,$naam,$ww,$db) or die("verbinden mislukt");
+$result = mysqli_query($sql,"SELECT * FROM bloemen") or die("Alle bloemen ophalen is mislukt")
+mysqli_close($sql) or die("verbinden sluiten mislukt");
+?>  </code></pre>
+      <p>
+        Hier zie je het volgende gebeuren:
+        <ol>
+          <li>De verbinding met de server wordt gemaakt.</li>
+          <li>De query voor <code>SELECT * FROM bloemen</code> wordt uitgevoerd op de database. Als de query mislukt,
+          krijg je de error “Alle bloemen ophalen is mislukt”.</li>
+          <li>Als we alle queries hebben gedaan dan sluiten we de verbinding weer af.</li>
+          <li>Dan wordt er voor elke rij in de database, tijdelijk een lijstje gemaakt met alle kolommen die
+          we hebben opgevraagd. Deze waardes laten we zien achter elkaar gevolgd door een enter.</li>
+        </ol>
+        Let erop dat bij het openen, uitvoeren van queries en het afsluiten van de database je altijd een <code>or die</code> gebruikt om foutmeldingen op te vangen. Als je dit niet doet zou een hacker gegevens over jouw database kunnen verzamelen.
+      </p>
+      <div class="assignment">
+        <h4> Opdracht </h4>
+        Maak de query die je nodig hebt om alle gegevens van de gebruikers van jouw database te laten zien.
+        Vul de query op de juiste plek in de code. Het resultaat zou moeten zijn dat je niet de foutmelding krijgt!
+      </div>
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="abc.html"> Volgende </a> </span>
+      <span class="right button"><a href="show.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

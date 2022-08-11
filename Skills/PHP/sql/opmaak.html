@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> ... </title>
+    <title> Gegevens opmaken </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
-
+    <link href="../../../prism.css" rel="stylesheet" />
+    <script src="../../../prism.js"></script>
   </head>
   <body>
     <nav>
@@ -17,16 +18,38 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> ... </h2>
+      <h2> Gegevens opmaken </h2>
       <p>
-        ...
+        De theorie van informatica actief kun je eventueel nalezen via
+        <a target="_blank" href="https://moodle.informatica-actief.nl/mod/page/view.php?id=48371">deze link</a>
       </p>
-      <!-- <div class="assignment">
+      <p>
+        Je kan met PHP ook html code maken hiermee kan je dus hele blokjes maken
+        die bepaalde dingen mooi laten zien. In het volgende voorbeeld maak je
+        bijvoorbeeld een tabel van de gegevens:
+      </p>
+      <pre><code class="language-php">
+&lt;table>
+  &lt;tr>
+    &lt;th>Artikel nummer&lt;/th>
+    &lt;th>Omschrijving&lt;/th>
+    &lt;th>Categorie&lt;/th>
+    &lt;th>Prijs&lt;/th>
+  &lt;/tr>
+&lt;?php
+  while(list($artikelnr,$omschrijving,$categorie,$prijs) = mysqli_fetch_row($resultaat)) {
+    echo "&lt;tr> &lt;td>$artikelnr&lt;/td> &lt;td>$omschrijving&lt;/td> &lt;td>$categorie&lt;/td> &lt;td>$prijs&lt;/td> &lt;/tr>"
+  }
+?>
+&lt;/table> </code></pre>
+        Je kan natuurlijk ook ander HTML code gebruiken om bijvoorbeeld mooie blokjes te maken zoals je ziet bij bijvoorbeeld CoolBlue.
+      </p>
+      <div class="assignment">
         <h4> Opdracht </h4>
-
-      </div> -->
+        Verbeter jouw website zodat de persoonsgegevens in een tabel worden weergegeven.
+      </div>
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="abc.html"> Volgende </a> </span>
+      <span class="right button"><a href="verbreken.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

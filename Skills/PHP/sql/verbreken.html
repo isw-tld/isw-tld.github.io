@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> ... </title>
+    <title> Verbinding verbreken </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
-
+    <link href="../../../prism.css" rel="stylesheet" />
+    <script src="../../../prism.js"></script>
   </head>
   <body>
     <nav>
@@ -17,16 +18,25 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> ... </h2>
+      <h2> Verbinding verbreken </h2>
       <p>
-        ...
+        Als je een connectie met de database hebt gemaakt dan moet je er ook voor zorgen dat de connectie met de database weer gesloten wordt anders kunnen andere mensen geen gebruik maken van jouw website als ze erop komen. Het verbreken van de connectie moet je zo snel mogelijk doen als je klaar bent met het gebruik ervan. Dit is dus na je jouw query’s hebt uitgevoerd.
       </p>
-      <!-- <div class="assignment">
-        <h4> Opdracht </h4>
+      <p>
+        De verbinding verbreek je met de opdracht
+        <pre><code class="language-php">
+mysqli_close($mysql) or die("Het verbreken van de verbinding met de MySQL-server is mislukt!"); </code></pre>
 
-      </div> -->
+        Hier gebruik je de opdracht <code>mysqli_close</code> met daar achter de
+        database die je hebt geopend om daadwerkelijk de database verbinding te
+        verbreken. Ook voeg je hier weer <code>or die</code> toe om er achter te komen of het wel echt gelukt is.
+      </p>
+      <div class="assignment">
+        <h4> Opdracht </h4>
+        Zorg ervoor dat op alle pagina's de database netjes afgesloten is als je er klaar mee bent.
+      </div>
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="abc.html"> Volgende </a> </span>
+      <span class="right button"><a href="invullen.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

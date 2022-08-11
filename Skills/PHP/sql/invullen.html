@@ -2,9 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> ... </title>
+    <title> Query invullen </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
+    <link href="../../../prism.css" rel="stylesheet" />
+    <script src="../../../prism.js"></script>
 
   </head>
   <body>
@@ -17,16 +19,54 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> ... </h2>
+      <h2> Query invullen </h2>
       <p>
-        ...
+        De theorie van informatica actief kun je eventueel nalezen via
+        <a target="_blank" href="https://moodle.informatica-actief.nl/mod/page/view.php?id=48394">deze link</a>
       </p>
-      <!-- <div class="assignment">
-        <h4> Opdracht </h4>
+      <p>
+        In de voorbeelden hebben we de artikelen terug gegeven uit alle categorieën,
+        maar soms wil je een filter gebruiken om alleen de artikelen van een bepaalde categorie te laten zien.
+        Om ervoor te zorgen dat de website wat slimmer wordt gaan we ervoor zorgen dat je op de categorie kan invullen die we dan gebruiken in de query.
+        Dit kan op twee manieren:
+        <ol>
+          <li>De gebruiker moet zelf een categorie invullen, het kan dan voorkomen dat de categorie niet bestaat of niet goed geschreven is.</li>
+          <li>De gebruiker kan kiezen tussen categorieën die bestaan in de database.</li>
+        </ol>
+        De eerste manier is het makkelijkste, deze gaan we als eerst uitproberen.
+      </p>
+      <h3>Zelf invullen</h3>
+      <p>
+        Om de gebruiker zelf een stad te kunnen laten invullen heb je een formulier nodig op jouw website. Dit kan gewoon een simpel formulier zijn met 1 invul vak voor de stad. Zoals deze:
+        <pre><code class="language-html">
+&lt;form action="pagina.php" method="POST">
+  Welke categorie zoek je? &lt;input type="text" name="Categorie"> &lt;input type="submit" name="verzend">
+&lt;/form>
+        </code></pre>
 
-      </div> -->
+        Vervolgens kun je met <code>$_POST["Catergorie"]</code> een variabele maken voor de categorie die ingevuld is. Deze
+        variabele kun je daarna in jouw query gebruiken. Dit doe je als volgt:
+      </p>
+      <pre><code class="language-php">
+$categorie = mysqli_real_escape_string($mysql, $_POST["Catergorie"]);
+$resultaat = mysqli_query($mysql, "SELECT * FROM artikel ORDER BY $categorie") or die("De selectquery op de database is mislukt!");
+      </code></pre>
+      <!-- TODO: uitleg mysqli_real_escape_string -->
+      <h3>Laten kiezen</h3>
+      <p>
+        Om de categorieën te laten zien waar de gebruiker uit kan kiezen moeten we er eerst voor zorgen dat de gebruiker weet welke categorieën er zijn. Deze haal je weer uit de database.
+      </p>
+      <!-- TODO: extra inhoud
+        Eerst de categorien uit de database ophalen
+        Dan de categorien linken aan de query
+      -->
+
+      <div class="assignment">
+        <h4> Opdracht </h4>
+        Maak een zoekveld om een specifieke gebruiker te zoeken. Zorg voor een goede foutmelding als de gebruiker niet bestaat.
+      </div>
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="abc.html"> Volgende </a> </span>
+      <span class="right button"><a href="beheer.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

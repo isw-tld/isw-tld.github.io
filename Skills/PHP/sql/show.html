@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> ... </title>
+    <title> Gegevens laten zien </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
-
+    <link href="../../../prism.css" rel="stylesheet" />
+    <script src="../../../prism.js"></script>
   </head>
   <body>
     <nav>
@@ -17,16 +18,38 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> ... </h2>
+      <h2> Gegevens laten zien </h2>
       <p>
-        ...
+        De theorie van informatica actief kun je eventueel nalezen via
+        <a target="_blank" href="https://moodle.informatica-actief.nl/mod/page/view.php?id=48303">deze link</a>
       </p>
-      <!-- <div class="assignment">
+      <p>
+        Voor dat we leren hoe we de gegevens uitgebreid kunnen gebruiken gaan we
+        eerst leren hoe we ze kunnen de gegevens op de website kunnen laten zien.
+        Dit doen we door gebruik te maken van de functie <code>echo</code> zoals we geleerd hebben bij PHP.
+        De simpelste manier om alles te laten zien is als volgt:
+      </p>
+      <pre><code class="language-php">
+while (list($id, $soort, $kleur, $aantal) = mysqli_fetch_row($result)) {
+  echo "$id $soort $kleur $aantal <br>";
+}  </code></pre>
+      <p>
+        Het volgende gebeurt in de code
+        <ol>
+          <li>We gebruiken een while-lus om alle rijen langs te gaan.</li>
+          <li>Elke rij slaan we op in een lijst, met daarin alle kolommen die we
+            in de query hebben geselecteerd. Dit doen we met de functie
+            <code>list()</code> en <code>mysqli_fetch_row()</code></li>
+          <li>De volgorde van de kolommen in de lijst, is hetzelfde als bij de query</li>
+          <li>Vervolgens laten we met echo de gegevens zien die we belangrijk vinden.</li>
+        </ol>
+      </p>
+      <div class="assignment">
         <h4> Opdracht </h4>
-
-      </div> -->
+        Zorg ervoor dat je alle gegevens van de gebruikers op je website kan zien.
+      </div>
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="abc.html"> Volgende </a> </span>
+      <span class="right button"><a href="opmaak.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

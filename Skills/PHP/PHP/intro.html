@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> ... </title>
+    <title> Introductie PHP </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
     <link href="../../../prism.css" rel="stylesheet" />
@@ -18,16 +18,99 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> ... </h2>
+      <h2> Introductie PHP </h2>
       <p>
-        ...
+        Om PHP te gebruiken moet je de USBwebserver gebruiken en de websites die je maakt opslaan in de map die staat bij de instellingen in root dir.
+        Vervolgens moet je daar een bestand hebben die als extensie .php heeft.
+        En als laatste moet je ervoor zorgen dat je de website opstart via de localhost knop op de USBwebserver. Het werkt niet via notepad++.
       </p>
-      <!-- <div class="assignment">
+      <p>
+        Zie theorie van <a href="https://moodle.informatica-actief.nl/course/view.php?id=755">Informatica actief, paragraaf 2</a>
+      </p>
+      <div class="assignment">
         <h4> Opdracht </h4>
+        Maak opdracht <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40129" target="_blank">Mijn favoriete sport</a>
+        en <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40130&forceview=1" target="_blank"> Echo, echo, enz.</a>.
+      </div>
 
-      </div> -->
+
+      <h3>Formulieren</h3>
+      <p>
+        Om gegevens naar PHP te sturen maak je gebruik van een formulier van HTML. In de standaard pagina zet je dan het volgende:
+        <pre><code class="language-html">
+&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;title>Eerste Formulier&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;h1>Formulier invullen&lt;/h1>
+    &lt;form action="" method="post">
+      &lt;label for="vnaam">Voornaam:&lt;/label><br>
+      &lt;input type="text" id="vnaam" name="vnaam">&lt;br>
+      &lt;label for="anaam">Achternaam:&lt;/label><br>
+      &lt;input type="text" id="anaam" name="anaam">
+      &lt;input type="submit" value="Verstuur">
+    &lt;/form>
+  &lt;/body>
+&lt;/html></code></pre>
+        In dit stuk zie je het formulier. Dit formulier wordt geopend met <code>&lt;form action="" method="post"></code>.
+        Wat hierbij van belang is, is dat je weet dat de actie vertelt waar de
+        inhoud naartoe wordt gestuurd. Als je het leeg laat zoals hier, dan wordt
+        het gestuurd naar de huidige pagina. De methode wordt gebruikt om aan
+        te geven hoe het wordt verstuurd. Post betekent dat we het versturen,
+        dit is de enige die je nu moet kennen.
+        </p>
+        <p>
+        In het formulier maak je daarna gebruik van de <code>input</code> tag, om velden te
+        maken voor de input. Je hebt verschillende soorten zoals text en submit
+        zoals in het voorbeeld. Er zijn er ook nog meer deze kun je vinden op
+        <a href="https://www.w3schools.com/html/html_form_elements.asp" target="_blank">W3Schools</a>. <br>
+        De <code>submit</code> knop, is nodig voor het versturen van de informatie.
+        Nadat het formulier verstuurd is, kun je de gegevens in PHP ophalen.
+        Hiervoor moeten we eerst een PHP blok maken in de code. Het PHP blok
+        maak je door middel van <code>&lt;?php ... ?></code>. Op de plek van de puntjes kun je
+        nu de code neerzetten.
+
+        <pre><code class="language-php">
+&lt;?php
+  // haal de inhoud uit het formulier
+  if (isset($_POST["vnaam"])) {
+    $naam = $_POST["vnaam"];
+    echo $naam;
+  } else {
+    echo "Geen voornaam opgegeven.";
+  }
+?></code></pre>
+        In het voorbeeld hierboven kun je nu zien hoe we de gegevens ophalen uit het formulier. De code werkt als volgt:
+        <ol>
+          <li>Kijk of er een POST is gedaan voor een input genaamd vnaam.</li>
+          <li>Als deze er is, dan slaan we de POST waarde voor vnaam op in de variabele naam en laten
+          het zien op het scherm.</li>
+          <li>Als deze er niet is, dan laten we op het scherm zien dat er geen voornaam gegeven is.</li>
+        </ol>
+        Als het goed is moet je de gewone constructie van if en else gewoon nog kennen.
+        Als dit niet het geval is, maak je nog niet te veel zorgen we gaan het nog
+        eens kort herhalen later, voor nu kun je gewoon gebruik maken van het
+        voorbeeld zoals hij gegeven is. We versturen niet altijd het formulier,
+        bijvoorbeeld de eerste keer als we de website laden. Om er dus voor te
+        zorgen dat we geen foutmelding krijgen gebruiken we de <code>if(isset($_POST["vnaam"])) </code>
+        hiermee kijk je of de post waarde wel bestaat.
+      </p>
+      <h3>Echo</h3>
+      <p>
+        Als laatste stukje voor deze theorie is de echo. De echo gebruik je om
+        stukjes tekst, of gegevens te laten zien op het scherm. Alle andere code
+        wordt namelijk verstopt. Als je een echo gebruikt, zorg er dan voor dat
+        de PHP code nog in het <code>&lt;body></code> blok staat van de HTML, hierdoor kan je
+        ook gebruiken van HTML en CSS in de code. Vergeet niet om alle regels
+        die je schrijft te laten eindigen op ; anders snapt PHP het niet. De
+        enige uitzondering is alle regels die je kan sluiten met accolade openen,
+        hiervoor zie je bijvoorbeeld de if deze eindigt met een {.
+      </p>
+
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="abc.html"> Volgende </a> </span>
+      <span class="right button"><a href="variabele.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

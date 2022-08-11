@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> ... </title>
+    <title> Sessies </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
-
+    <link href="../../../prism.css" rel="stylesheet" />
+    <script src="../../../prism.js"></script>
   </head>
   <body>
     <nav>
@@ -17,16 +18,48 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> ... </h2>
+      <h2> Sessies </h2>
       <p>
-        ...
+        Zie theorie van <a href="https://moodle.informatica-actief.nl/course/view.php?id=755">Informatica actief, paragraaf 2</a>
+      </p>
+      <div class="assignment">
+        <h4> Opdracht </h4>
+        Maak opdracht <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40129" target="_blank">Mijn favoriete sport</a>
+        en <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40130&forceview=1" target="_blank"> Echo, echo, enz.</a>.
+      </div>
+      <p>
+        Nu we verschillende waardes hebben opgehaald, gebruikt en hebben weergegeven, wordt het tijd om te leren hoe we de gegevens ook nog kunnen onthouden. Dit doe je door middel van een sessie. Deze sessies worden op je computer opgeslagen tot je de internet browser afsluit.
+Het eerste wat we moeten doen voor het gebruiken van een sessie is de functie session_start() roepen bovenin ons bestand. Natuurlijk doe je dit in een php blok net als alle andere PHP code. Hiermee zorg je ervoor dat je bij het bestandje kan waar de sessie gegevens opgeslagen zijn.
+Als je bij het bestand kan, dan kunnen we nu kijken naar hoe we de gegevens kunnen opslaan en gebruiken.
+<?php
+  session_start()
+  if(!isset($_SESSION["bezoek"])) {
+    $_SESSION["bezoek"] = 0;
+  }
+  $aantal_keer = $_SESSION["bezoek"];
+  echo "je bent hier $aantal_keer geweest";
+  $_SESSION["bezoek"] = $aantal_keer + 1;
+?>
+Wat hier gebeurt is het volgende:
+1. we starten als eerst de sessie zoals hierboven al vertelt is.
+2. Daarna zeggen we: als er nog geen sessie variabele genaamd bezoek is, dan zorgen we dat
+deze nu wordt gemaakt en op 0 wordt gezet.
+3. Vervolgens slaan we de waarde van de sessie op in de variabele $aantal_keer.
+- Het is belangrijk dat je de sessie variabele opslaat in een gewone variabele, anders kan je hem niet goed kan gebruiken in de code, dat vindt PHP niet zo leuk. Als je dan echt wilt laten zien wat er in een sessie variabele is, dan kun je het volgende gebruiken print_r($_SESSION); hiermee print je alles wat er in de sessie zit.
+4. Dan laten we de hoeveelheid bezoeken zien op de website.
+5. Als laatst slaan we de sessie weer op in de variabele zodat deze goed staat voor de volgende
+keer.
+Deze stappen zet je eigenlijk altijd als je een sessie wilt gebruiken. Let er dus goed op dat je deze stappen ook daadwerkelijk zet, anders werkt het niet.
+Verder kun je ook sessies weer uit zetten dit doe je met de functie session_destroy(), hiermee haal je de hele sessie weg, waardoor je hem daarna ook niet meer kan gebruiken.
+Als alternatief kun je ook session_unset() gebruiken, hiermee haal je alleen alle variabele weg. Dit betekent dat je nog wel de sessie hebt, maar niet meer de variabele.
+
       </p>
       <!-- <div class="assignment">
         <h4> Opdracht </h4>
 
       </div> -->
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="abc.html"> Volgende </a> </span>
+      <span class="right button"><a href="get.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

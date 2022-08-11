@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> ... </title>
+    <title> Variabele en Operatoren</title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
-
+    <link href="../../../prism.css" rel="stylesheet" />
+    <script src="../../../prism.js"></script>
   </head>
   <body>
     <nav>
@@ -17,16 +18,115 @@
       </ul>
     </nav>
     <div class="content basis">
-      <h2> ... </h2>
+      <h2> Variabele en Operatoren</h2>
       <p>
-        ...
+        Zie theorie van <a href="https://moodle.informatica-actief.nl/course/view.php?id=755">Informatica actief, paragraaf 3</a>
       </p>
-      <!-- <div class="assignment">
+      <div class="assignment">
         <h4> Opdracht </h4>
+        <details>
+          <summary>HAVO</summary>
+          Maak de opdrachten
+          <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40150" target="_blank">Euro's, guldens en afronden</a> en
+          <h4>++ Samenstellen</h4>
+          Ga terug naar opdracht <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40129" target="_blank">Mijn favoriete sport</a> van paragraaf 2, probeer deze opdracht nog eens te maken, maar gebruik dit keer de punt operator om de waardes samen te voegen.
+        </details>
+        <details>
+          <summary>VWO</summary>
+          <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40149" target="_blank">Uren, minuten en seconden</a>
+        </details>
 
-      </div> -->
+      </div>
+      <h3>Variabele</h3>
+      <p>
+        Een variabele is een plekje waar je iets kan opslaan. Dit kunnen gegevens
+        zijn uit een formulier of waardes uit je database, maar ook waardes die
+        constant zijn. Een variabele in PHP maak je als volgt:
+        <ul>
+          <li>$naam = "Jouw Naam"; voor een stuk tekst.</li>
+          <li>$leeftijd = 17; voor een nummer.</li>
+        </ul>
+        Het is hierbij van belang dat je begint met een $ en afsluit met een ;. Je kunt verder alle variaties
+        van letters en cijfers gebruiken om de variabele een nuttige naam te geven,
+        ook kun je de _ gebruiken, maar het is gebruikelijk om zelf gemaakte variabele geen _ na de $ te geven,
+        deze zijn namelijk speciaal. Bij $_POST kun je dat bijvoorbeeld zien.
+      </p>
+      <p>
+        Als je gegevens uit een formulier wilt halen dan gebruik je <code>$_POST["naamVeld"]</code>.
+        Dit voorbeeld zou je kunnen gebruiken als je in een formulier een input
+        hebt die als name <code>naamVeld</code> heeft.
+        <pre><code class="language-html">
+&lt;form action="thisPage.php" method="POST">
+  &lt;input type="text" name="naamVeld">
+&lt;/form></code></pre>
+<p>
+
+  $_POST is een speciale variabele, namelijk een array met daarin alle
+  waardes die je gestuurd hebt met de POST methode. Dit is ook waarom de
+  <code>method="POST"</code> zo belangrijk is voor het formulier.
+</p>
+
+        <h3>Operatoren</h3>
+        Soms moet je variabele bewerken, bijvoorbeeld wanneer je de leeftijd
+        berekent als je de geboortedatum weet, of als je de voor en achternaam
+        hebt en ze bij elkaar wilt zetten. Hieronder staat een voorbeeld ervan.
+        <br>
+        <code>$leeftijd = $jaartal - $geboortejaar; </code><br>
+        <code>$volNaam = $voornaam." ".$achternaam;</code>
+
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Operator </th>
+            <th>Naam </th>
+            <th>Werkt voor </th>
+            <th>Doet  </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>.  </td>
+            <td>concat </td>
+            <td>Teksten </td>
+            <td>Koppelt de tekst aan elkaar (zonder spatie)  </td>
+          </tr>
+          <tr>
+            <td>+  </td>
+            <td>plus </td>
+            <td>Nummers </td>
+            <td>Telt nummers bij elkaar op </td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>Min </td>
+            <td>Nummers </td>
+            <td>Trekt nummers van elkaar af </td>
+          </tr>
+          <tr>
+            <td>* </td>
+            <td>keer </td>
+            <td>Nummers </td>
+            <td>Vermenigvuldig nummers </td>
+          </tr>
+          <tr>
+            <td>/ </td>
+            <td>delen </td>
+            <td>Nummers  </td>
+            <td>Deelt nummers door elkaar </td>
+          </tr>
+          <tr>
+            <td>% </td>
+            <td>modulo </td>
+            <td>Nummers </td>
+            <td>Geeft de rest na een deling </td>
+          </tr>
+        </tbody>
+      </table>
+
       <button onclick="history.back()">Terug</button>
-      <span class="right button"><a href="abc.html"> Volgende </a> </span>
+      <span class="right button"><a href="keuze.html"> Volgende </a> </span>
     </div>
   </body>
 </html>

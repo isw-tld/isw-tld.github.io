@@ -55,7 +55,7 @@ body {
   color: var(--accent1);
 }
 
-.basis {
+.basis, .PHP {
   background-color: var(--main-t4);
 }
 

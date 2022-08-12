@@ -20,18 +20,41 @@
     <div class="content basis">
       <h2> Sessies </h2>
       <p>
-        Zie theorie van <a href="https://moodle.informatica-actief.nl/course/view.php?id=755">Informatica actief, paragraaf 2</a>
+        Zie theorie van <a href="https://moodle.informatica-actief.nl/course/view.php?id=755">Informatica actief, paragraaf 7</a>
       </p>
       <div class="assignment">
         <h4> Opdracht </h4>
-        Maak opdracht <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40129" target="_blank">Mijn favoriete sport</a>
-        en <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40130&forceview=1" target="_blank"> Echo, echo, enz.</a>.
+        Kies hier een opdracht om te doen, afhankelijk van wat je graag zou willen oefenen.
+        Ik raad je aan om inloggen en lijsten te oefenen, deze hebben betrekking op je
+        website.
+        <details>
+          <summary>Spelletje</summary>
+          Maak de opdrachten
+          <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40171" target="_blank">Hoger-Lager</a> en
+          breid hem daarna uit met <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40226" target="_blank">het vervolg</a>
+          </details>
+        <details>
+          <summary>Inloggen</summary>
+          <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40229&forceview=1" target="_blank">Alleen voor vrienden</a>
+        </details>
+        <details>
+          <summary>Lijsten</summary>
+          <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40228&forceview=1" target="_blank">Boodschappenlijst</a>
+        </details>
       </div>
       <p>
-        Nu we verschillende waardes hebben opgehaald, gebruikt en hebben weergegeven, wordt het tijd om te leren hoe we de gegevens ook nog kunnen onthouden. Dit doe je door middel van een sessie. Deze sessies worden op je computer opgeslagen tot je de internet browser afsluit.
-Het eerste wat we moeten doen voor het gebruiken van een sessie is de functie session_start() roepen bovenin ons bestand. Natuurlijk doe je dit in een php blok net als alle andere PHP code. Hiermee zorg je ervoor dat je bij het bestandje kan waar de sessie gegevens opgeslagen zijn.
-Als je bij het bestand kan, dan kunnen we nu kijken naar hoe we de gegevens kunnen opslaan en gebruiken.
-<?php
+        Nu we verschillende waardes hebben opgehaald, gebruikt en hebben weergegeven,
+        wordt het tijd om te leren hoe we de gegevens ook nog kunnen onthouden.
+        Dit doe je door middel van een sessie. Deze sessies worden op je computer
+        opgeslagen tot je de internet browser afsluit.
+        Het eerste wat we moeten doen voor het gebruiken van een sessie is de
+        functie <code class="begrip">session_start()</code> roepen bovenin ons bestand. Natuurlijk doe je
+        dit in een PHP blok net als alle andere PHP code. Hiermee zorg je ervoor
+        dat je bij het bestandje kan waar de sessie gegevens opgeslagen zijn.
+        Als je bij het bestand kan, dan kunnen we nu kijken naar hoe we de gegevens
+        kunnen opslaan en gebruiken.
+        <pre><code class="language-php">
+&lt;?php
   session_start()
   if(!isset($_SESSION["bezoek"])) {
     $_SESSION["bezoek"] = 0;
@@ -39,19 +62,32 @@ Als je bij het bestand kan, dan kunnen we nu kijken naar hoe we de gegevens kunn
   $aantal_keer = $_SESSION["bezoek"];
   echo "je bent hier $aantal_keer geweest";
   $_SESSION["bezoek"] = $aantal_keer + 1;
-?>
-Wat hier gebeurt is het volgende:
-1. we starten als eerst de sessie zoals hierboven al vertelt is.
-2. Daarna zeggen we: als er nog geen sessie variabele genaamd bezoek is, dan zorgen we dat
-deze nu wordt gemaakt en op 0 wordt gezet.
-3. Vervolgens slaan we de waarde van de sessie op in de variabele $aantal_keer.
-- Het is belangrijk dat je de sessie variabele opslaat in een gewone variabele, anders kan je hem niet goed kan gebruiken in de code, dat vindt PHP niet zo leuk. Als je dan echt wilt laten zien wat er in een sessie variabele is, dan kun je het volgende gebruiken print_r($_SESSION); hiermee print je alles wat er in de sessie zit.
-4. Dan laten we de hoeveelheid bezoeken zien op de website.
-5. Als laatst slaan we de sessie weer op in de variabele zodat deze goed staat voor de volgende
-keer.
-Deze stappen zet je eigenlijk altijd als je een sessie wilt gebruiken. Let er dus goed op dat je deze stappen ook daadwerkelijk zet, anders werkt het niet.
-Verder kun je ook sessies weer uit zetten dit doe je met de functie session_destroy(), hiermee haal je de hele sessie weg, waardoor je hem daarna ook niet meer kan gebruiken.
-Als alternatief kun je ook session_unset() gebruiken, hiermee haal je alleen alle variabele weg. Dit betekent dat je nog wel de sessie hebt, maar niet meer de variabele.
+?></code></pre>
+        Wat hier gebeurt is het volgende:
+        <ol>
+          <li>We starten als eerst de sessie zoals hierboven al vertelt is.</li>
+          <li>Daarna zeggen we: als er nog geen sessie variabele genaamd bezoek is, dan zorgen we dat
+          deze nu wordt gemaakt en op 0 wordt gezet.</li>
+          <li>Vervolgens slaan we de waarde van de sessie op in de variabele $aantal_keer.</li>
+          <ul>
+            <li>Het is belangrijk dat je de sessie variabele opslaat in een gewone
+              variabele, anders kan je hem niet goed kan gebruiken in de code,
+              dat vindt PHP niet zo leuk. Als je dan echt wilt laten zien wat
+              er in een sessie variabele is, dan kun je het volgende gebruiken
+              <code>print_r($_SESSION);</code> hiermee print je alles wat er in de sessie zit.</li>
+          </ul>
+          <li>Dan laten we de hoeveelheid bezoeken zien op de website.</li>
+          <li>Als laatst slaan we de sessie weer op in de variabele zodat deze goed staat voor de volgende
+          keer.</li>
+        </ol>
+        Deze stappen zet je eigenlijk altijd als je een sessie wilt gebruiken.
+        Let er dus goed op dat je deze stappen ook daadwerkelijk zet, anders werkt het niet.
+        Verder kun je ook sessies weer uit zetten dit doe je met de functie
+        <code class="begrip">session_destroy()</code>, hiermee haal je de hele sessie weg,
+        waardoor je hem daarna ook niet meer kan gebruiken.
+        Als alternatief kun je ook <code class="begrip">session_unset()</code> gebruiken,
+        hiermee haal je alleen alle variabele weg. Dit betekent dat je nog wel
+        de sessie hebt, maar niet meer de variabele.
 
       </p>
       <!-- <div class="assignment">

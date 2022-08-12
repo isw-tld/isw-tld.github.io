@@ -20,25 +20,92 @@
     <div class="content basis">
       <h2> Keuzeopdrachten </h2>
       <p>
-        Zie theorie van <a href="https://moodle.informatica-actief.nl/course/view.php?id=755">Informatica actief, paragraaf 2</a>
+        Zie theorie van <a href="https://moodle.informatica-actief.nl/course/view.php?id=755">Informatica actief, paragraaf 4</a>
       </p>
       <div class="assignment">
         <h4> Opdracht </h4>
-        Maak opdracht <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40129" target="_blank">Mijn favoriete sport</a>
-        en <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40130&forceview=1" target="_blank"> Echo, echo, enz.</a>.
+        Maak opdracht <a href="https://moodle.informatica-actief.nl/mod/page/view.php?id=40172" target="_blank">Rekenmachines</a>.
       </div>
       <p>
         Wanneer je code schrijft heb je wel eens dat je ander gedrag wil als er bijvoorbeeld iemand onder de 18 is dan wanneer iemand boven de 18 is.
         Dit kan je doen door gebruik te maken van if elseif en else. Een voorbeeld hiervan is
       </p>
+      <pre><code class="language-php">
+if ($leeftijd < 18) {
+	echo "Jij bent nog jong";
+} elseif ($leeftijd == 18) {
+	echo "jij bent nu 18 jaar!";
+} else {
+	echo "Jij bent al volwassen";
+} </code></pre>
       <p>
-        Wat je hier ziet is dat bij if en elseif haakjes worden gebruikt om de voorwaarde te vertellen. Daarnaast wordt er tussen de accolades ({ en }) de opdracht gegeven. De else wordt gebruikt om code uit te voeren als alle andere dingen niet waar zijn.
-      </p>
-      <!-- TODO: insert tabel -->
-      <!-- <div class="assignment">
-        <h4> Opdracht </h4>
+        Wat je hier ziet is dat bij if en elseif haakjes worden gebruikt om de
+        voorwaarde te vertellen. Daarnaast wordt er tussen de accolades ({ en })
+        de opdracht gegeven. De else wordt gebruikt om code uit te voeren als
+        alle andere dingen niet waar zijn.
+        Let op als je nummer vergelijkt met cijfer dan kijkt hij naar de lengte van het woord.
 
-      </div> -->
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Operator </th>
+            <th>Naam </th>
+            <th>Werkt op </th>
+            <th>Doet </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>== </td>
+            <td>Is gelijk aan </td>
+            <td>Nummers en woorden </td>
+            <td>Controleert of iets het zelfde is </td>
+          </tr>
+          <tr>
+            <td>&gt;  </td>
+            <td>Groter dan </td>
+            <td>Nummers en woorden </td>
+            <td>Controleert of wat links staat groter is dan wat rechts staat.  </td>
+          </tr>
+          <tr>
+            <td>&lt;  </td>
+            <td>Kleiner dan </td>
+            <td>Nummers en woorden </td>
+            <td>Controleert of wat links staat kleiner is dan wat rechts staat. </td>
+          </tr>
+          <tr>
+            <td>&gt;= </td>
+            <td>Groter of gelijk </td>
+            <td>Nummers en woorden </td>
+            <td>Controleert of wat links staat groter of gelijk is aan wat rechts staat </td>
+          </tr>
+          <tr>
+            <td>&lt;= </td>
+            <td>Kleiner of gelijk </td>
+            <td>Nummers en woorden </td>
+            <td>Controleert of wat rechts staat kleiner of gelijk is aan wat rechts staat. </td>
+          </tr>
+          <tr>
+            <td>&amp;&amp; </td>
+            <td>En </td>
+            <td>Twee vergelijkingen  <br>Bijv. (5 &gt; 2 &amp;&amp; 5 &lt; 10) </td>
+            <td>Controleert of de eerste en de tweede vergelijking beide waar zijn. </td>
+          </tr>
+          <tr>
+            <td>|| </td>
+            <td>Of </td>
+            <td>Twee vergelijkingen  <br>Bijv. (12 &gt; 10 || 12 &gt; -10)  </td>
+            <td>Controleert of een van de twee vergelijkingen waar is.  </td>
+          </tr>
+          <tr>
+            <td>! </td>
+            <td>Niet </td>
+            <td>Een voorwaarde</td>
+            <td>Draait de uitkomst van de voorwaarde om, dus waar wordt niet waar en andersom </td>
+          </tr>
+        </tbody>
+      </table>
       <button onclick="history.back()">Terug</button>
       <span class="right button"><a href="logica.html"> Volgende </a> </span>
     </div>

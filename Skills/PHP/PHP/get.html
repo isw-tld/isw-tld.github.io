@@ -5,7 +5,8 @@
     <title> Efficientie </title>
     <link rel="stylesheet" href="../../../opmaak.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico"/>
-
+    <link href="../../../prism.css" rel="stylesheet" />
+    <script src="../../../prism.js"></script>
   </head>
   <body>
     <nav>
@@ -18,13 +19,69 @@
     </nav>
     <div class="content basis">
       <h2> Efficientie! </h2>
-      <p>
-        ...
-      </p>
-      <!-- <div class="assignment">
+      <div class="assignment">
         <h4> Opdracht </h4>
+        Ontwerp een website met een formulier waarop je een naam kan invullen. Zorg ervoor dat de naam verstuurd wordt met de URL-variabele naam.
+        Zodra je op verstuur klikt ga je naar een andere webpagina waarin de naam uit de URL wordt gehaald, en dan een bericht geeft voor de persoon.
 
-      </div> -->
+      </div>
+      <p>
+        We hebben tot nu toe bij formulieren gebruik gemaakt van de methode POST. Hiermee kwamen de gegevens in de lijst $_POST, diewe konden gebruiken in
+        de PHP. Soms is het alleen helemaal niet handig om dingen met POST te versturen en wil je liever dat het mee gestuurd wordt met de website aanvraag.
+        Dit klinkt allemaal nog een beetje abstact.
+      </p>
+      <p>
+        Om dit beter te begrijpen moeten we eerst weten wat een URL is. De URL is bijvoorbeeld de website die je invult zoals isw-tld.github.io is een URL.
+        Als je verder kijkt zie je dat de hele URL voor deze webpagina isw-tld.github.io/Skills/PHP/PHP/get.html is. Hiermee vertellen ze hoe je bij dit bestand
+        kunt komen.
+      </p>
+      <p>
+        Naast de plek waar iets staat kunnen we ook variabele toevoegen in de URL. Deze kun je dan op de website uitlezen en gebruiken! Dit werkt als volgt:
+        <ol>
+          <li>Schrijf de URL normaal op.</li>
+          <li>Zet een vraagteken achter de URL.</li>
+          <li>Schrijf de naam van de variabele gevolgd door een is teken (=).</li>
+          <li>Schrijf de waarde die de variabele moet hebben achter de is.</li>
+          <li>Als je meerdere variabele wilt hebben, zet je daarna een en teken (&am;) neer en herhaal ga je terug naar stap 3. </li>
+        </ol>
+        Voorbeeld: <code>isw-tld.github.io?achternaam=Toledo&klas=5</code>
+      </p>
+      <p>Deze gegevens kunnen we nu met PHP uit de URL halen met behulp van <code>$_GET</code>. Het werkt verder het zelfde als met POST.</p>
+<pre><code class="language-php">
+$naam = $_GET["achternaam"];
+$klas = $_GET["klas"];</code></pre>
+      <h3>URL variabele maken</h3>
+      <p>Er zijn twee manieren om een URL variabele te maken.
+      <ol>
+        <li>Je maakt handmatig een link, bijvoorbeeld in de a-tag.<br>
+        <code>&lt;a href="pagina.php?naam=Toledo">website!&lt;/a> </code><br>
+        Tip! laat de naam door PHP invullen met echo, wel goed op de haakjes letten.</li>
+        <li>Je maakt een formulier waar de methode get is. <br>
+        <code>&lt;form action="pagina.php" method="get"></code>
+        </li>
+
+      </ol>
+      </p>
+      <h3>Efficientie?</h3>
+      <p>
+        Dan nog een laatste vraag, waarom heet deze paragraaf efficientie?<br>
+        Dat is heel simpel, stel je wilt een boek tonen uit een bibliotheek,
+        dan zou je voor elk boek een unieke webpagina kunnen maken, maar dan heb je al snel duizende pagina's.
+        Niet heel handig, vooral niet als je alle gegevens al hebt staan in de database...
+      </p>
+      <p>
+        Stel nou dat je gebruik kan maken van het boekid om alle gegevens uit de database op te halen,
+        en je dan 1 webpagina maakt die gevuld wordt met alle informatie uit de database... <br>
+        Dan heb je maar 1 webpagina, die gelijk voor alle boeken werkt.
+      </p>
+      <p>
+        Voor dit soort problemen kun je nou perfect URL variabele gebruiken. Dit werkt niet voor alles,
+        bijvoorbeeld je zou dit niet voor klanten moeten doen, want je wilt niet zomaar alle gegevens van
+        klanten kunnen zien, maar voor bijvoorbeeld een socialmedia met publieke gebruikerspagina's kan het weer wel.
+        <br>
+        Zoals altijd bij informatica, ligt alles aan wat je wilt en of je er over na hebt gedacht.
+        Jij hebt de gegevens van mensen in de hand, de vraag is wat je er mee doet.
+      </p>
       <button onclick="history.back()">Terug</button>
       <span class="right button"><a href="../skills.html"> Volgende </a> </span>
     </div>

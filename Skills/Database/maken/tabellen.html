@@ -34,7 +34,7 @@
       </thead>
       <tbody>
         <tr>
-          <td>CHAR(&lt;aantal&gt;) VARCHAR(&lt;aantal&gt;)</td>
+          <td>CHAR(&lt;aantal&gt;) VARCHAR(&lt;aantal&gt;)</td>
           <td>CHAR staat voor tekst. Wanneer je dit datatype gebruikt moet je het
             maximale aantal tekens opgeven. CHAR(15) staat voor een tekst van
             maximaal 15 tekens.<br>Een soortgelijk datatype is VARCHAR, dit staat
@@ -42,7 +42,7 @@
             kan niet gerekend worden.</td>
         </tr>
         <tr>
-          <td>SMALLINT  INT</td>
+          <td>SMALLINT INT</td>
           <td>Wanneer er wel gerekend moet kunnen worden hebben we de keus uit
             een aantal datatypen. Gaat het om betrekkelijk kleine gehele getallen,
             dan is SMALLINT heel gebruikelijk.<br>Voor grote gehele getallen gebruiken
@@ -50,7 +50,7 @@
             die voor de opslag nodig zijn.</td>
         </tr>
         <tr>
-          <td>DECIMAL(&lt;aantal&gt;, &lt;aantal&gt;) FLOAT(&lt;aantal&gt;) REAL</td>
+          <td>DECIMAL(&lt;aantal&gt;, &lt;aantal&gt;) FLOAT(&lt;aantal&gt;) REAL</td>
           <td>Een getal met cijfers achter de komma wordt aangeduid met DECIMAL,
             FLOAT of REAL.<br>Bij DECIMAL kun je het totaal aantal cijfers opgeven
             en het aantal cijfers achter de komma. DECIMAL(8,2) staat voor getallen
@@ -88,7 +88,7 @@
         het ID is daarbij altijd een getal. Je doet het dus wel bij AbonneeID maar
         niet bij Tijdschrifttitel.
         <br>
-        De opbouw is als volgt: 
+        De opbouw is als volgt:
       </p>
       <pre class=""><code>
   CREATE TABLE &lt;tabelnaam> (
@@ -112,7 +112,7 @@
        FOREIGN KEY (Tijdschrifttitel)
         REFERENCES Tijdschriften(Tijdschrifttitel)
         ON DELETE CASCADE ON UPDATE CASCADE
-  ) 
+  )
       </code></pre>
       <p>
         <b>Let op!</b>
@@ -151,7 +151,6 @@
             de database waarin je tabellen gaat maken en gegevens gaat opslaan.
             Dit doe je als volgt:</li>
           <ul>
-            <!-- TODO: update to make it a query -->
             <li>Bovenin het SQL bestand schrijf je <code> CREATE DATABASE IF NOT EXISTS &lt;naam>;</code>.</li>
             <li>Op de regel er onder schrijf je <code> USE &lt;naam></code>.</li>
             <li>Ga nu verder met de andere query's onder deze twee regels.</li>
